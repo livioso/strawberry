@@ -91,10 +91,21 @@ angular.module('strawberry')
     };
 
     $scope.addMember = function () {
-      if ($scope.formDataAddMember !== null &&
-          $scope.formDataAddMember !== {}) {
-        $scope.shoppinglistMembers.push($scope.formDataAddMember);
-        $scope.formDataAddMember = null;
+      var memberToAdd = $scope.formDataAddMember;
+
+      if (typeof memberToAdd !== 'undefined' &&
+          memberToAdd !== null &&
+          'profileId' in memberToAdd) {
+
+        var filterMembers =
+          $scope.shoppinglistMembers.filter(function (member) {
+          return member.profileId === memberToAdd.profileId;
+        });
+
+        if (filterMembers.length === 0) {
+          $scope.shoppinglistMembers.push(memberToAdd);
+          $scope.formDataAddMember = null;
+        }
       }
     };
 
