@@ -1,0 +1,75 @@
+\usepackage[automark]{scrpage2}
+\usepackage[english]{babel}
+\usepackage[english]{translator}
+\usepackage{tocbasic}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{hyphenat}
+\usepackage{ae}
+
+% box around images
+\usepackage{boxedminipage}
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{minitoc}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage[printonlyused]{acronym}
+
+% neat tables
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.4}
+
+\usepackage{ifpdf}
+\usepackage{eurosym}
+\usepackage{natbib}
+\usepackage{paralist}
+\usepackage{array,ragged2e}
+\usepackage{tabularx}
+
+\usepackage[normalem]{ulem} %emphasize weiterhin kursiv
+
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+\else
+    \usepackage{graphicx}
+\fi
+
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\automark[chapter]{section}
+
+% see http://tex.stackexchange.com/a/51033
+\lohead{\sffamily\upshape\headmark}
+\lofoot{}
+\cofoot[\pagemark]{\pagemark}
+
+\hypersetup{
+  bookmarks=true,         % show bookmarks bar?
+  unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+  pdftoolbar=true,        % show Acrobat’s toolbar?
+  pdfmenubar=true,        % show Acrobat’s menu?
+  pdffitwindow=true,      % window fit to page when opened
+  pdfstartview={FitH},    % fits the width of the page to the window
+  pdfnewwindow=true,      % links in new window
+  colorlinks=true,       % false: boxed links; true: colored links
+  linkcolor=black,          % color of internal links
+  citecolor=black,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=cyan,          % color of external links
+}
+
+
+%  --------------------------------------------------------------------------
+%  Start Document
+%  --------------------------------------------------------------------------
+
+\title{Dokumentation IPA Wochenplaner}
+
+\author{Livio Bieri (livio.bieri@students.fhnw.ch)}
+
+\date{13.03. - 26.03.2012}
+
+
+
