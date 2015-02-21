@@ -12,13 +12,13 @@ DOCUMENTPDF="document.pdf"
 PUBLISHDIR="publish"
 
 prepare:
-	@echo "prepare"
+	@echo "Preparing ..."
 	@mkdir -p $(BUILDDIR)
 	@cat `find . -name "*.markdown" | sort` > $(BUILDDIR)/$(DOCUMENTMARKDOWN)
 	@cp -R $(FIGUREDIR) $(BUILDDIR)
 
 pdf: prepare
-	@echo "pdf"
+	@echo "Creating pdf output ..."
 	@pandoc \
 		--latex-engine=xelatex \
 		-H $(ASSETSDIR)/preamble.tex \
@@ -33,12 +33,13 @@ pdf: prepare
 
 
 doc: prepare
-	@echo "doc"
+	@echo "Creating doc output ..."
 
 publish: pdf doc
-	@echo "publish"
+	@echo "Publishing final results ..."
 	@mkdir -p $(PUBLISHDIR)
 	@cp $(BUILDDIR)/$(DOCUMENTPDF) $(PUBLISHDIR)
+	@git commit -m '(Auto-Publish by make) Updated pdf to newest version' -- $(PUBLISHDIR)
 
 clean:
 	@echo "clean"
