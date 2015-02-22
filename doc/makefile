@@ -4,14 +4,15 @@ all: publish
 ASSETSDIR="assets"
 FIGUREDIR="figures"
 
-# Assets
+# Individual Assets
 TEXPREAMBLE="preamble.tex"
 BIBBIBLIOGRAPHY="references.bib"
 
-
+# Build and Output
 BUILDDIR="build"
 DOCUMENTMARKDOWN="document.markdown"
 DOCUMENTPDF="document.pdf"
+DOCUMENTDOCX="document.docx"
 
 PUBLISHDIR="publish"
 
@@ -33,20 +34,21 @@ pdf: prepare
 		--variable papersize=a4paper,oneside,headsepline \
 		--variable bibliography=totocnumbered \
 		--table-of-contents \
-		--chapter $(BUILDDIR)/$(DOCUMENTMARKDOWN)\
+		--chapter $(BUILDDIR)/$(DOCUMENTMARKDOWN) \
 		--output $(BUILDDIR)/$(DOCUMENTPDF)
 
-
-doc: prepare
-	@echo "Creating doc output ..."
+docx: prepare
+	@echo "Creating docx output ..."
+	@pandoc \
+		--standalone -S $(BUILDDIR)/$(DOCUMENTMARKDOWN) \
+		--output $(BUILDDIR)/$(DOCUMENTDOCX)
 
 publish: pdf
 	@echo "Publishing final results ..."
 	@mkdir -p $(PUBLISHDIR)
 	@cp $(BUILDDIR)/$(DOCUMENTPDF) $(PUBLISHDIR)
-	@git commit -m '(Auto-Publish by make) Updated pdf to newest version' -- $(PUBLISHDIR)
+	@git commit -m '(Auto-Publish by make) Updated pdf to newest version.' -- $(PUBLISHDIR)
 
 clean:
 	@echo "Cleaning up ..."
 	@rm -r $(BUILDDIR)
-
