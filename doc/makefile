@@ -16,11 +16,13 @@ DOCUMENTDOCX="document.docx"
 
 PUBLISHDIR="publish"
 
+
 prepare:
 	@echo "Preparing ..."
 	@mkdir -p $(BUILDDIR)
 	@cat `find . -name "*.markdown" | sort` > $(BUILDDIR)/$(DOCUMENTMARKDOWN)
 	@cp -R $(FIGUREDIR) $(BUILDDIR)
+
 
 pdf: prepare
 	@echo "Creating pdf output ..."
@@ -37,17 +39,20 @@ pdf: prepare
 		--chapter $(BUILDDIR)/$(DOCUMENTMARKDOWN) \
 		--output $(BUILDDIR)/$(DOCUMENTPDF)
 
+
 docx: prepare
 	@echo "Creating docx output ..."
 	@pandoc \
 		--standalone -S $(BUILDDIR)/$(DOCUMENTMARKDOWN) \
 		--output $(BUILDDIR)/$(DOCUMENTDOCX)
 
+
 publish: pdf
 	@echo "Publishing final results ..."
 	@mkdir -p $(PUBLISHDIR)
 	@cp $(BUILDDIR)/$(DOCUMENTPDF) $(PUBLISHDIR)
 	@git commit -m '(Auto-Publish by make) Updated pdf to newest version.' -- $(PUBLISHDIR)
+
 
 clean:
 	@echo "Cleaning up ..."
