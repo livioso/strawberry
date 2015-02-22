@@ -8,7 +8,6 @@ BUILDDIR="build"
 DOCUMENTMARKDOWN="document.markdown"
 DOCUMENTPDF="document.pdf"
 
-
 PUBLISHDIR="publish"
 
 prepare:
@@ -21,15 +20,16 @@ pdf: prepare
 	@echo "Creating pdf output ..."
 	@pandoc \
 		--latex-engine=xelatex \
-		-H $(ASSETSDIR)/preamble.tex \
+		--include-in-header=$(ASSETSDIR)/preamble.tex \
 		--bibliography=$(ASSETSDIR)/references.bib \
-		-V documentclass:scrbook \
-		-V fontsize=11pt \
-		-V classoption:openright \
-		-V papersize:a4paper,oneside,BCOR10mm \
-		-V bibliography:totocnumbered \
+		--variable documentclass=scrbook \
+		--variable fontsize=12pt \
+		--variable classoption=openright \
+		--variable papersize=a4paper,oneside,headsepline \
+		--variable bibliography=totocnumbered \
+		--table-of-contents \
 		--chapter $(BUILDDIR)/$(DOCUMENTMARKDOWN)\
-		-o $(BUILDDIR)/$(DOCUMENTPDF)
+		--output $(BUILDDIR)/$(DOCUMENTPDF)
 
 
 doc: prepare
