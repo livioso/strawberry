@@ -35,13 +35,13 @@ pdf: prepare
 doc: prepare
 	@echo "Creating doc output ..."
 
-publish: pdf doc
+publish: pdf
 	@echo "Publishing final results ..."
 	@mkdir -p $(PUBLISHDIR)
 	@cp $(BUILDDIR)/$(DOCUMENTPDF) $(PUBLISHDIR)
 	@git commit -m '(Auto-Publish by make) Updated pdf to newest version' -- $(PUBLISHDIR)
 
 clean:
-	@echo "clean"
+	@echo "Cleaning up ..."
 	@rm -r $(BUILDDIR)
 
