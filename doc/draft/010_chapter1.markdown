@@ -55,7 +55,7 @@ Here is a footnote reference,[^1] and another.
 
 [^1]: Here is the footnote.
 
-~~~~~~~c
+~~~~~~~{.json .numberLines startFrom="0"}
 {
   "firstName": "John",
   "lastName": "Smith",

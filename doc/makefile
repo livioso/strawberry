@@ -5,7 +5,7 @@ ASSETSDIR="assets"
 FIGUREDIR="figures"
 
 # Individual Assets
-TEXPREAMBLE="preamble.tex"
+TEXPREAMBLE="options.sty"
 BIBBIBLIOGRAPHY="references.bib"
 
 # Build and Output
@@ -31,11 +31,13 @@ pdf: prepare
 		--include-in-header=$(ASSETSDIR)/$(TEXPREAMBLE) \
 		--bibliography=$(ASSETSDIR)/$(BIBBIBLIOGRAPHY) \
 		--variable documentclass=scrbook \
-		--variable fontsize=12pt \
+		--variable fontsize=13pt \
 		--variable classoption=openright \
 		--variable papersize=a4paper,oneside,headsepline \
 		--variable bibliography=totocnumbered \
+		--highlight-style=tango \
 		--table-of-contents \
+		--toc-depth=4 \
 		--chapter $(BUILDDIR)/$(DOCUMENTMARKDOWN) \
 		--output $(BUILDDIR)/$(DOCUMENTPDF)
 
