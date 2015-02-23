@@ -1,0 +1,16 @@
+\usepackage[automark]{scrpage2}
+\usepackage[english]{babel}
+\usepackage[english]{translator}
+
+% increase the space in tables
+\renewcommand{\arraystretch}{1.4}
+
+% nicer header
+\pagestyle{scrheadings}
+\clearscrheadfoot
+
+% nicer footer
+% see http://tex.stackexchange.com/a/51033
+\lohead{\sffamily\upshape\headmark}
+\lofoot{}
+\cofoot[\pagemark]{\pagemark}

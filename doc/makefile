@@ -7,6 +7,7 @@ FIGUREDIR="figures"
 # Individual Assets
 TEXPREAMBLE="options.sty"
 BIBBIBLIOGRAPHY="references.bib"
+YAMLMETADATA="metadata.yaml"
 
 # Build and Output
 BUILDDIR="build"
@@ -38,7 +39,8 @@ pdf: prepare
 		--highlight-style=tango \
 		--table-of-contents \
 		--toc-depth=4 \
-		--chapter $(BUILDDIR)/$(DOCUMENTMARKDOWN) \
+		--number-sections \
+		--chapter $(BUILDDIR)/$(DOCUMENTMARKDOWN) $(ASSETSDIR)/$(YAMLMETADATA) \
 		--output $(BUILDDIR)/$(DOCUMENTPDF)
 
 
