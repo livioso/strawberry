@@ -19,18 +19,17 @@ Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae phar
 Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. 
 
 ### Usecase: Add User To Database
-
-| **Attribute**        | **Description** |
-|:---------------------|:----------------|
-| **Name**             | aoreet. Vestibulum nisi asdfasdfasdflectus** |
-| **Description**      | Ut orci risus, adsfasdf portti |
-| **Actors**           | Ut orci risus, accumsasdfsdfasdfan portti |
+| **Attribute**        | **Description**                  |
+| :-                   | :-                                                |
+| **Name**             | aoreet. Vestibulum nisi asdfasdfasdflectus**      |
+| **Description**      | Ut orci risus, adsfasdf portti                    |
+| **Actors**           | Ut orci risus, accumsasdfsdfasdfan portti         |
 | **Preconditions**    | Ut orci risus, accumsan porttadffasdfasdfadsfasfi |
-| **Basic Flow**       | Ut orci risus, accumsan portti |
-| **Alternative Flow** | Ut orci risus, accumsan portti |
-| **Postconditions**   | Ut orci risus, accumsan portti |
-| **Extension Points** | Ut orci risus,asdfasdf accumsan portti |
-| **Notes**            | Ut orci risus, accumsan portti |
+| **Basic Flow**       | Ut orci risus, accumsan portti                    |
+| **Alternative Flow** | Ut orci risus, accumsan portti                    |
+| **Postconditions**   | Ut orci risus, accumsan portti                    |
+| **Extension Points** | Ut orci risus,asdfasdf accumsan portti            |
+| **Notes**            | Ut orci risus, accumsan portti                    |
 
 ## Development Stack
 
