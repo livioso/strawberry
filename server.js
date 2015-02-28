@@ -19,6 +19,7 @@ if ((cluster.isMaster) && (process.execArgv.indexOf('--debug') < 0) && (process.
 //if (cluster.isMaster) {
 
     console.log('for real!');
+		console.log(process.env.MONGODB_CONNECTIONSTRING_USER_PW);
     // Count the machine's CPUs
     var cpuCount = require('os').cpus().length;
 
