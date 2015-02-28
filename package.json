@@ -63,7 +63,6 @@
     "serve-favicon": "2.2.0",
     "swig": "1.4.2",
     "through": "^2.3.6",
-    "time-grunt": "1.0.0",
     "view-helpers": "0.1.5"
   },
   "devDependencies": {
