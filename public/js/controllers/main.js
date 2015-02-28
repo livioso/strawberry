@@ -20,7 +20,7 @@ angular.module('todoController', [])
 
 			// validate the formData to make sure that something is there
 			// if form is empty, nothing will happen
-			if ($scope.formData.text != undefined) {
+			if ($scope.formData.text !== undefined) {
 				$scope.loading = true;
 
 				// call the create function from our service (returns a promise object)
