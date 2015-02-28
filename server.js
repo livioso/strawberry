@@ -1,53 +1,27 @@
-'use strict';
+// set up ======================================================================
+var express  = require('express');
+var app      = express(); 								// create our app w/ express
+var mongoose = require('mongoose'); 					// mongoose for mongodb
+var port  	 = process.env.PORT || 8080; 				// set the port
+var database = require('./config/database'); 			// load the database config
+var morgan   = require('morgan');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
-/*
-var cl = console.log;
-console.log = function(){
-  console.trace();
-  cl.apply(console,arguments);
-};
-*/
+// configuration ===============================================================
+mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
 
-// Requires meanio .
-var mean = require('meanio');
-var cluster = require('cluster');
+app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
+app.use(morgan('dev')); // log every request to the console
+app.use(bodyParser.urlencoded({'extended':'true'})); // parse application/x-www-form-urlencoded
+app.use(bodyParser.json()); // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
 
-// Code to run if we're in the master process or if we are not in debug mode/ running tests
+// routes ======================================================================
+require('./app/routes.js')(app);
 
-if ((cluster.isMaster) && (process.execArgv.indexOf('--debug') < 0) && (process.env.NODE_ENV!=='test') && (process.execArgv.indexOf('--singleProcess')<0)) {
-//if (cluster.isMaster) {
-
-    console.log('for real!');
-    // Count the machine's CPUs
-    var cpuCount = require('os').cpus().length;
-
-    // Create a worker for each CPU
-    for (var i = 0; i < cpuCount; i += 1) {
-        console.log ('forking ',i);
-        cluster.fork();
-    }
-
-    // Listen for dying workers
-    cluster.on('exit', function (worker) {
-        // Replace the dead worker, we're not sentimental
-        console.log('Worker ' + worker.id + ' died :(');
-        cluster.fork();
-
-    });
-
-// Code to run if we're in a worker process
-} else {
-
-    var workerId = 0;
-    if (!cluster.isMaster)
-    {
-        workerId = cluster.worker.id;
-    }
-// Creates and serves mean application
-    mean.serve({ workerid: workerId /* more options placeholder*/ }, function (app) {
-      var config = app.config.clean;
-        var port = config.https && config.https.port ? config.https.port : config.http.port;
-        console.log('Mean app started on port ' + port + ' (' + process.env.NODE_ENV + ') cluster.worker.id:', workerId);
-    });
-}
+// listen (start app with node server.js) ======================================
+app.listen(port);
+console.log("App listening on port " + port);
