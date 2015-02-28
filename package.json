@@ -50,6 +50,7 @@
     "lodash": "2.4.1",
     "meanio": "linnovate/meanio",
     "mongoose": "3.8.21",
+    "karma": "0.12.28",
     "morgan": "1.5.0",
     "ms": "0.6.2",
     "nodemailer": "1.2.2",
