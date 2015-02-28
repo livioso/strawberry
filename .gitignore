@@ -73,3 +73,5 @@ modules/views/
 # vim Files
 # --------------------
 *.swp
+
+public/main.css
