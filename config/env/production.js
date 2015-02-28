@@ -1,8 +1,9 @@
 'use strict';
 
 module.exports = {
-  db: process.env.MONGODB_CONNECTIONSTRING_USER_PW + '/prod',
+  db: process.env.MONGODB_CONNECTIONSTRING_USER_PW,
 
+	/*
 	http: {
 		port: process.env.PORT
 	},
@@ -10,6 +11,7 @@ module.exports = {
 	https: {
 		port: process.env.PORT
 	},
+	*/
 
   /**
    * Database options that will be passed directly to mongoose.connect
