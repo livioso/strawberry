@@ -1,7 +1,20 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 
+html {
+	overflow-y:scroll;
+}
+
 body {
   font: 100% $font-stack;
   color: $primary-color;
+	padding-top:50px;
+}
+
+#todo-list {
+	margin-bottom:30px;
+}
+
+#todo-form {
+	margin-bottom:50px;
 }
