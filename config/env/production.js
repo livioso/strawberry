@@ -2,6 +2,15 @@
 
 module.exports = {
   db: process.env.MONGODB_CONNECTIONSTRING_USER_PW,
+
+	http: {
+		port: process.env.PORT
+	},
+
+	https: {
+		port: process.env.PORT
+	},
+
   /**
    * Database options that will be passed directly to mongoose.connect
    * Below are some examples.
