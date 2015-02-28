@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  db: process.env.MONGODB_CONNECTIONSTRING_USER_PW,
+  db: process.env.MONGODB_CONNECTIONSTRING_USER_PW + '/prod',
 
 	http: {
 		port: process.env.PORT
