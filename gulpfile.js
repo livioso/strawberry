@@ -17,7 +17,7 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('sass', function(done) {
-  gulp.src('./scss/main.scss')
+  gulp.src('./public/scss/*.scss')
     .pipe(sass())
     .pipe(gulp.dest('./public'))
     .pipe(minifyCss({

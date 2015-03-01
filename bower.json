@@ -1,0 +1,21 @@
+{
+  "name": "webeC-github",
+  "version": "0.0.0",
+  "homepage": "https://github.com/livioso/webeC",
+  "authors": [
+    "Livio Bieri <livio@livio.li>"
+  ],
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
