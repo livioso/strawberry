@@ -5,9 +5,10 @@ var stylish = require('jshint-stylish');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var bower = require('gulp-bower');
 
 gulp.task('heroku:production', function(){
-  runSeq('sass');
+  runSeq('bower', 'sass');
 });
 
 gulp.task('jshint', function() {
@@ -23,4 +24,8 @@ gulp.task('sass', function(done) {
     .pipe(minifyCss({
       keepSpecialComments: 0
     })).on('end', done);
+});
+
+gulp.task('bower', function(done) {
+	return bower();
 });

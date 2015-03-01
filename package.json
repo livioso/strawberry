@@ -10,6 +10,7 @@
     "express-session": "^1.10.3",
     "forever": "*",
     "gulp": "*",
+    "gulp-bower": "0.0.10",
     "gulp-jshint": "^1.9.2",
     "gulp-minify-css": "^0.5.1",
     "gulp-rename": "^1.2.0",
