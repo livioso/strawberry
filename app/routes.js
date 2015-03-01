@@ -1,5 +1,14 @@
 var Todo = require('./models/todo');
 
+// middleware function to be used
+// for every secured routes
+var auth = function(req, res, next){
+	if (!req.isAuthenticated())
+    res.send(401);
+	else
+		next();
+};
+
 function getTodos(res) {
 
 	Todo.find(function(err, todos) {
@@ -60,7 +69,7 @@ module.exports = function(app) {
 
 
 	// -- application --
-	app.get('*', function(req, res) {
+	app.get('*', auth, function(req, res) {
 		res.sendfile('./public/index.html'); // load the single view file
 	});
 
