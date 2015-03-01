@@ -1,25 +1,4 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
-
-html {
-	overflow-y:scroll;
-}
-
 .auth-form {
 	width: 400px;
 	margin: 60px auto;
-}
-
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-	padding-top:50px;
-}
-
-#todo-list {
-	margin-bottom:30px;
-}
-
-#todo-form {
-	margin-bottom:50px;
 }

@@ -47,12 +47,8 @@ module.exports = function(app, passport) {
 		res.send(200);
 	});
 
-	app.get('/users', auth, function(req, res){
-		res.send([{name: "user1"}, {name: "user2"}]);
-	});
-
 	// create todo and send back all todos after creation
-	app.post('/api/todos', function(req, res) {
+	app.post('/api/todos', auth, function(req, res) {
 
 		// create a todo, information comes
 		// from AJAX request from Angular
@@ -72,7 +68,7 @@ module.exports = function(app, passport) {
 
 
 	// delete a todo
-	app.delete('/api/todos/:todo_id', function(req, res) {
+	app.delete('/api/todos/:todo_id', auth, function(req, res) {
 		Todo.remove({
 			_id : req.params.todo_id
 		},

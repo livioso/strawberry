@@ -17,8 +17,6 @@ var app = angular.module('strawberry', ['todoController', 'todoService', 'ngReso
 
 			// Not Authenticated
 			else {
-				$rootScope.message = 'You need to log in.';
-
 				deferred.reject();
 				$location.url('/login');
 			}
@@ -64,11 +62,9 @@ var app = angular.module('strawberry', ['todoController', 'todoService', 'ngReso
 })
 
 .run(function($rootScope, $http){
-    $rootScope.message = '';
 
     // Logout function is available in any pages
     $rootScope.logout = function(){
-      $rootScope.message = 'Logged out.';
       $http.post('/logout');
     };
 });
@@ -85,12 +81,12 @@ app.controller('LoginCtrl', function($scope, $rootScope, $http, $location) {
     })
     .success(function(user){
       // No error: authentication OK
-      $rootScope.message = 'Authentication successful!';
       $location.url('/admin');
     })
     .error(function(){
       // Error: authentication failed
-      $rootScope.message = 'Authentication failed.';
+			$scope.user.password = '';
+			$scope.error = true;
       $location.url('/login');
     });
   };
