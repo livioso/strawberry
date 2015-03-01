@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session')
 var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 8080;
@@ -7,6 +8,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require('passport');
+
 
 // database configuration
 mongoose.connect(database.url);
@@ -21,6 +23,7 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 
 // passport configuration
 require('./config/auth.js')(passport);
+app.use(session({ secret: 'securedsession' }));
 app.use(passport.initialize()); // necessary for express based apps
 app.use(passport.session()); // passport session middleware
 
