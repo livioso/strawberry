@@ -23,13 +23,28 @@ function getTodos(res) {
 	});
 }
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
 
 	// get all todos
 	app.get('/api/todos', function(req, res) {
 
 		// from mongo db -> via mongoose
 		getTodos(res);
+	});
+
+	app.get('/loggedin', function(req, res) {
+		res.send(req.isAuthenticated() ? req.user : '0');
+	});
+
+	// route to log in
+	app.post('/login', passport.authenticate('local'), function(req, res) {
+		res.send(req.user);
+	});
+
+	// route to log out
+	app.post('/logout', function(req, res){
+		req.logOut();
+		res.send(200);
 	});
 
 

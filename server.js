@@ -24,7 +24,7 @@ app.use(passport.initialize()); // necessary for express based apps
 app.use(passport.session()); // passport session middleware
 
 // routes
-require('./app/routes.js')(app);
+require('./app/routes.js')(app, passport);
 
 // listen (start app with node server.js)
 app.listen(port);
