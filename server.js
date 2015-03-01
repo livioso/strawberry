@@ -20,7 +20,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
 require('./config/auth.js')(passport);
-
+app.use(passport.initialize()); // necessary for express based apps
+app.use(passport.session()); // passport session middleware
 
 // routes
 require('./app/routes.js')(app);
