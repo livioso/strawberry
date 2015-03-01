@@ -18,7 +18,6 @@ function getTodos(res) {
 		}
 
 		// return all todos
-		// as json :-)
 		res.json(todos);
 	});
 }
