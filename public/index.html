@@ -6,23 +6,25 @@
 		<meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Loading Bootstrap -->
-    <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="components/flat-ui/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
-    <link href="dist/css/flat-ui.css" rel="stylesheet">
+    <link href="components/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<link href="main.css" rel="stylesheet">
 
 		<!-- Angular -->
 		<script src="components/angular/angular.js"></script>
 		<script src="components/angular-route/angular-route.js"></script>
 		<script src="components/angular-resource/angular-resource.js"></script>
 
-		<!-- My own stuff -->
+		<!-- Controllers / Services -->
 		<script src="js/core.js"></script>
 		<script src="js/controllers/todoController.js"></script>
 		<script src="js/services/todoService.js"></script>
 	</head>
 	<body>
-		{{message}}
     <ng-view></ng-view>
   </body>
 </html>

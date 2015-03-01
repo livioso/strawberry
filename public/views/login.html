@@ -1,17 +1,14 @@
-<h1>Login</h1>
-<form ng-submit="login()">
-  <p>
-    <label class="control-label">Username</label>
-  	<input type="text" placeholder="Username" ng-model="user.username" />
-  </p>
-  <p>
-    <label class="control-label">Password</label>
-  	<input type="password" placeholder="Password" ng-model="user.password" /><br/>
-  </p>
-  <p>
-    <button type="submit" class="btn btn-primary">Login</button>
-  </p>
-  <p>
-  <i>username: admin<br/>password: admin</i>
-  </p>
-</form>
+<div class="container">
+
+<div class="auth-form">
+	<form class="form-signin" ng-submit="login()">
+		<h3>Sign in</h3>
+		<label for="inputUsername" class="sr-only">Username</label>
+		<input type="text" id="inputUsername" class="form-control" placeholder="Username" ng-model="user.username" required autofocus>
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="user.password" required>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	</form>
+</div>
+
+</div>

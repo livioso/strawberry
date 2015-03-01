@@ -5,6 +5,11 @@ html {
 	overflow-y:scroll;
 }
 
+.auth-form {
+	width: 400px;
+	margin: 60px auto;
+}
+
 body {
   font: 100% $font-stack;
   color: $primary-color;
