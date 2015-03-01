@@ -1,6 +1,9 @@
 # documentation build
 documentation/build/
 
+public/main.css
+public/components/
+
 # --------------------
 # OSX Files
 # --------------------
@@ -73,5 +76,3 @@ modules/views/
 # vim Files
 # --------------------
 *.swp
-
-public/main.css

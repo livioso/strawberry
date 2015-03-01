@@ -46,6 +46,9 @@ module.exports = function(app, passport) {
 		res.send(200);
 	});
 
+	app.get('/users', auth, function(req, res){
+		res.send([{name: "user1"}, {name: "user2"}]);
+	});
 
 	// create todo and send back all todos after creation
 	app.post('/api/todos', function(req, res) {
@@ -83,7 +86,7 @@ module.exports = function(app, passport) {
 
 
 	// -- application --
-	app.get('*', auth, function(req, res) {
+	app.get('/', function(req, res) {
 		res.sendfile('./public/index.html'); // load the single view file
 	});
 

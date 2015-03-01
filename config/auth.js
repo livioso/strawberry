@@ -4,8 +4,10 @@ module.exports = function(passport) {
 
 	passport.use(new LocalStrategy(
 		function(username, password, done) {
-			if (username === "admin" && password === "admin") // stupid example
+
+			if (username === "admin" && password === "admin") {
 				return done(null, {name: "admin"});
+			}
 
 			return done(null, false, { message: 'Incorrect username.' });
 		}

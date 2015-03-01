@@ -1,0 +1,17 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="strawberry">
+	<head>
+		<script src="components/angular/angular.js"></script>
+		<script src="components/angular-route/angular-route.js"></script>
+		<script src="components/angular-resource/angular-resource.js"></script>
+		<script src="js/core.js"></script>
+		<script src="js/controllers/todoController.js"></script>
+		<script src="js/services/todoService.js"></script>
+	</head>
+	<body>
+		{{message}}
+    <ng-view></ng-view>
+  </body>
+</html>
