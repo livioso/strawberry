@@ -93,12 +93,42 @@ app.controller('LoginCtrl', function($scope, $rootScope, $http, $location) {
 });
 
 app.controller('AdminCtrl', function($scope, $http) {
-  // List of users got from the server
-  $scope.users = [];
 
-  // Fill the array to display it in the page
-  $http.get('/users').success(function(users){
-    for (var i in users)
-      $scope.users.push(users[i]);
-  });
+});
+
+app.controller('WelcomeMessageController',	function($scope, $filter) {
+	var date = new Date();
+	var hourOfDay = $filter('date')(date.getTime(), 'H');
+	var openItemsCount = 4;
+
+	$scope.welcomeUser = 'Livio';
+
+	if(hourOfDay > 6 && hourOfDay < 12) {
+		$scope.welcomeMessage = 'Good Morning';
+	}
+
+	if(hourOfDay > 12 && hourOfDay < 18) {
+		$scope.welcomeMessage = 'Good Afternoon';
+	}
+
+	if(hourOfDay > 18 && hourOfDay < 24) {
+		$scope.welcomeMessage = 'Good Evening';
+	}
+
+	if(hourOfDay >= 0 && hourOfDay < 6) {
+		$scope.welcomeMessage = 'Good Night';
+	}
+
+	// items count comment
+	if(openItemsCount === 0) {
+		$scope.openItemsComment = 'Our shopping list is empty.';
+	}
+
+	if(openItemsCount === 1) {
+		$scope.openItemsComment = 'We have one item in our shopping list.';
+	}
+
+	if(openItemsCount > 1) {
+		$scope.openItemsComment = 'We have ' + openItemsCount + ' items in our shopping list.';
+	}
 });

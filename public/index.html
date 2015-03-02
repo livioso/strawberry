@@ -1,23 +1,16 @@
 <!doctype html>
-
-<!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="strawberry">
+<html ng-app="strawberry" lang="en">
 	<head>
+		<meta charset=utf-8>
 		<meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
-		<!-- Icon -->
+		<!-- Custom stuff -->
+		<link href="main.css" rel="stylesheet">
 		<link rel="shortcut icon" href="img/strawberry.ico">
 
-    <!-- Loading Bootstrap -->
-    <link href="components/flat-ui/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Loading Flat UI -->
+		<!-- Bootstrap, Angular etc.-->
+		<link href="components/flat-ui/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="components/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
-
-		<!-- Custom CSS -->
-		<link href="main.css" rel="stylesheet">
-
-		<!-- Angular -->
 		<script src="components/angular/angular.js"></script>
 		<script src="components/angular-route/angular-route.js"></script>
 		<script src="components/angular-resource/angular-resource.js"></script>
@@ -27,6 +20,7 @@
 		<script src="js/controllers/todoController.js"></script>
 		<script src="js/services/todoService.js"></script>
 	</head>
+
 	<body>
     <ng-view></ng-view>
   </body>

@@ -1,9 +1,41 @@
-<h1>Admin</h1>
-<p>
-	<a href="#/">Home</a><br />
-	<a href="#/" ng-click="logout()">Logout</a>
-</p>
-<h2>User List</h2>
-<ul>
-	<li ng-repeat="u in users">{{u.name}}</li>
-</ul>
+<div class="container">
+
+	<div class="text-center welcome" ng-controller="WelcomeMessageController">
+		<h3 class="minty">{{welcomeMessage + ', ' + welcomeUser + '.'}}</h3>
+		<h5>{{openItemsComment}}</h5>
+	</div>
+	<div class="shoppinglist center-block">
+		<div class="form-group">
+        <div class="input-group">
+					<div class="input-group-btn" >
+							<div class="btn-group">
+									<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
+											<span data-bind="label" id="searchLabel">1x</span> <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu">
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+									</ul>
+							</div>
+					</div>
+					<input type="search" name="searchBy" id="searchBy" class="form-control" placeholder="Eggs, milk, whatever you need."/>
+					<span class="input-group-btn">
+							<button id="filter" class="btn btn-primary btn-block">
+									<span class="fui-plus-circle"></span>
+							</button>
+					</span>
+        </div>
+     </div>
+			<div class="panel panel-default">
+
+				<!-- List group -->
+				<ul class="list-group">
+					<li class="list-group-item">2x Eggs</li>
+					<li class="list-group-item">1x Cream Cheese</li>
+					<li class="list-group-item">1x Whole-Grain Bread</li>
+					<li class="list-group-item">1x Coconut Milk</li>
+				</ul>
+			</div>
+	</div>
+</div>
