@@ -1,5 +1,5 @@
 var express = require('express');
-var session = require('express-session')
+var session = require('express-session');
 var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 8080;
