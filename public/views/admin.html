@@ -1,8 +1,23 @@
 <div class="container">
 
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/">
+				<span>Strawberry</span>
+      </a>
+    </div>
+		<div class="nav navbar-nav navbar-right">
+			<a class="btn btn-inverse navbar-btn" href="https://github.com/livioso/webeC"><span class="fui-github"></span></a>
+			<a class="btn btn-danger navbar-btn" href="#/" ng-click="logout()">Log Out</a>
+		</div>
+  </div>
+</nav>
+
 	<div class="text-center welcome" ng-controller="WelcomeMessageController">
-		<h3 class="minty">{{welcomeMessage + ', ' + welcomeUser + '.'}}</h3>
-		<h5>{{openItemsComment}}</h5>
+		<h1><img src="components/flat-ui/img/icons/svg/clipboard.svg" /></h1>
+		<h3> {{welcomeMessage + ', ' + welcomeUser + '.'}}</h3>
+		<h5 class="minty">{{openItemsComment}}</h5>
 	</div>
 	<div class="shoppinglist center-block">
 		<div class="form-group">

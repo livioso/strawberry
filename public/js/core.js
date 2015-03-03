@@ -111,12 +111,8 @@ app.controller('WelcomeMessageController',	function($scope, $filter) {
 		$scope.welcomeMessage = 'Good Afternoon';
 	}
 
-	if(hourOfDay > 18 && hourOfDay < 24) {
+	if((hourOfDay > 18 && hourOfDay < 24) || (hourOfDay >= 0 && hourOfDay < 6)) {
 		$scope.welcomeMessage = 'Good Evening';
-	}
-
-	if(hourOfDay >= 0 && hourOfDay < 6) {
-		$scope.welcomeMessage = 'Good Night';
 	}
 
 	// items count comment
