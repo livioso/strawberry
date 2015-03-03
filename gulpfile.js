@@ -12,7 +12,7 @@ gulp.task('heroku:production', function(){
 });
 
 gulp.task('jshint', function() {
-  return gulp.src(['**/*.js', '!node_modules/**/*.js'])
+  return gulp.src(['**/*.js', '!node_modules/**/*.js', '!public/components/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
 });
