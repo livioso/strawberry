@@ -23,7 +23,7 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 
 // passport configuration
 require('./config/auth.js')(passport);
-app.use(session({ secret: 'securedsession' }));
+app.use(session({ secret: 'securedsession', saveUninitialized: true, resave: true }));
 app.use(passport.initialize()); // necessary for express based apps
 app.use(passport.session()); // passport session middleware
 

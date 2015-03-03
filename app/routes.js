@@ -44,7 +44,7 @@ module.exports = function(app, passport) {
 	// route to log out
 	app.post('/logout', function(req, res){
 		req.logOut();
-		res.send(200);
+		res.sendStatus(404);
 	});
 
 	// create todo and send back all todos after creation
@@ -66,6 +66,9 @@ module.exports = function(app, passport) {
 		});
 	});
 
+	app.get('/category', auth, function(req, res) {
+		res.sendStatus(404);
+	});
 
 	// delete a todo
 	app.delete('/api/todos/:todo_id', auth, function(req, res) {
