@@ -103,15 +103,15 @@ app.controller('WelcomeMessageController',	function($scope, $filter) {
 
 	$scope.welcomeUser = 'Livio';
 
-	if(hourOfDay > 6 && hourOfDay < 12) {
+	if(hourOfDay >= 6 && hourOfDay < 12) {
 		$scope.welcomeMessage = 'Good Morning';
 	}
 
-	if(hourOfDay > 12 && hourOfDay < 18) {
+	if(hourOfDay >= 12 && hourOfDay < 18) {
 		$scope.welcomeMessage = 'Good Afternoon';
 	}
 
-	if((hourOfDay > 18 && hourOfDay < 24) || (hourOfDay >= 0 && hourOfDay < 6)) {
+	if((hourOfDay >= 18 && hourOfDay < 24) || (hourOfDay >= 0 && hourOfDay < 6)) {
 		$scope.welcomeMessage = 'Good Evening';
 	}
 

@@ -1,56 +1,100 @@
 <div class="container">
 
 	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/">
-				<span>Strawberry</span>
-      </a>
-    </div>
-		<div class="nav navbar-nav navbar-right">
-			<a class="btn btn-inverse navbar-btn" href="https://github.com/livioso/webeC"><span class="fui-github"></span></a>
-			<a class="btn btn-danger navbar-btn" href="#/" ng-click="logout()">Log Out</a>
-		</div>
-  </div>
-</nav>
-
-	<div class="text-center welcome" ng-controller="WelcomeMessageController">
-		<h1><img src="img/todolist.svg" /></h1>
-		<h3> {{welcomeMessage + ', ' + welcomeUser + '.'}}</h3>
-		<h5 class="minty">{{openItemsComment}}</h5>
-	</div>
-	<div class="shoppinglist center-block">
-		<div class="form-group">
-        <div class="input-group">
-					<div class="input-group-btn" >
-							<div class="btn-group">
-									<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
-											<span data-bind="label" id="searchLabel">1x</span> <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-									</ul>
-							</div>
-					</div>
-					<input type="search" name="searchBy" id="searchBy" class="form-control" placeholder="Eggs, milk, whatever you need."/>
-					<span class="input-group-btn">
-							<button id="filter" class="btn btn-primary btn-block">
-									<span class="fui-plus-circle"></span>
-							</button>
-					</span>
-        </div>
-     </div>
-			<div class="panel panel-default">
-
-				<!-- List group -->
-				<ul class="list-group">
-					<li class="list-group-item">2x Eggs</li>
-					<li class="list-group-item">1x Cream Cheese</li>
-					<li class="list-group-item">1x Whole-Grain Bread</li>
-					<li class="list-group-item">1x Coconut Milk</li>
-				</ul>
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#/">
+					<span>Strawberry</span>
+				</a>
 			</div>
+			<div class="nav navbar-nav navbar-right">
+				<a class="btn btn-inverse navbar-btn" href="https://github.com/livioso/webeC"><span class="fui-github"></span></a>
+				<a class="btn btn-danger navbar-btn" href="#/" ng-click="logout()">log out</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="row welcome">
+		<div class="center-block">
+			<div class="text-center" ng-controller="WelcomeMessageController">
+				<span><img src="img/todolist.svg" /></span>
+				<h5> {{welcomeMessage + ', ' + welcomeUser + '.'}}</h5>
+				<h6 class="minty">{{openItemsComment}}</h6>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-3">
+
+		<div class="list-group">
+			<a href="#" class="list-group-item btn-primary">
+				<p class="list-group-item-text"><span class="shopping-list-icon fui-list"></span>Maria und Livio</p>
+			</a>
+			<a href="#" class="list-group-item">
+				<p class="list-group-item-text"><span class="shopping-list-icon fui-list"></span>Mama und Papa<span class="badge pull-right">4</span></p>
+			</a>
+			<a href="#" class="list-group-item">
+				<p class="list-group-item-text"><span class="shopping-list-icon fui-list"></span>Ferienhaus<span class="badge pull-right">6</span></p>
+			</a>
+		</div>
+
+		<button class="btn btn-default btn-block"><span class="shopping-list-icon fui-gear"></span> manage my lists</button>
+
+
+	</div>
+		<div class="col-md-5">
+
+<form class="form-inline block">
+	  <div class="form-group">
+    <div class="input-group">
+			<div class="input-group-addon"><i class="fa fa-cart-plus"></i></div>
+      <input type="text" class="form-control input" id="exampleInputAmount" placeholder="Milk, Cheese, whatever...">
+    </div>
+  </div>
+
+		<button class="btn btn-primary dropdown-toggle" type="button">
+		Category<span class="caret"></span>
+	</button>
+
+	<ul class="dropdown-menu dropdown-menu" role="menu">
+		<li><a href="#">2x</a></li>
+		<li><a href="#">3x</a></li>
+		<li><a href="#">4x</a></li>
+		<li class="divider"></li>
+		<li><a href="#">Separated link</a></li>
+	</ul>
+
+
+	<button class="btn btn-primary"><i class="fa fa-user-plus fa-1x"></i></button>
+
+
+  <button type="submit" class="btn btn-danger"><i class="fa fa-plus fa-1x"></i></button>
+</form>
+<p></p>
+
+<ul class="list-group list-group-sm">
+  <li class="list-group-item finished">
+   <i class="fa fa-check-square-o finish"></i>
+   <span>Some Milk</span>
+   <label class="label label-primary pull-right">Milk and cheese</label>
+ </li>
+ <li class="list-group-item">
+   <i class="fa fa-check-square-o finish fa-square-o"></i>
+   <span>Two Broccoli</span>
+   <label class="label label-primary pull-right">Fruit and Vegetables</label>
+ </li>
+ <li class="list-group-item">
+   <i class="fa fa-check-square-o finish fa-square-o "></i>
+   <span>Basmati Rice</span>
+   <label class="label label-primary pull-right">Grain Products</label>
+ </li>
+</ul>
+
+		</div>
 	</div>
 </div>
+
+
+
