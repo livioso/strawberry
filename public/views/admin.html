@@ -25,6 +25,8 @@
 	</div>
 
 
+
+
 	<div class="row">
 		<div class="col-md-3">
 
@@ -48,9 +50,10 @@
 
 <form class="form-inline block">
 	  <div class="form-group">
-    <div class="input-group">
+    <div class="input-group" ng-controller="TypeaheadCtrl">
 			<div class="input-group-addon"><i class="fa fa-cart-plus"></i></div>
-      <input type="text" class="form-control input" id="exampleInputAmount" placeholder="Milk, Cheese, whatever...">
+			<input type="text"class="form-control input" ng-model="result" typeahead="suggestion for suggestion in cities($viewValue)">
+
     </div>
   </div>
 

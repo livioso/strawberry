@@ -1,4 +1,4 @@
-var app = angular.module('strawberry', ['todoController', 'todoService', 'ngResource', 'ngRoute'])
+var app = angular.module('strawberry', ['todoController', 'todoService', 'ngResource', 'ngRoute', 'ui.bootstrap'])
 
 .config(function($routeProvider, $locationProvider, $httpProvider) {
 
@@ -93,6 +93,16 @@ app.controller('LoginCtrl', function($scope, $rootScope, $http, $location) {
 });
 
 app.controller('AdminCtrl', function($scope, $http) {
+
+});
+
+app.controller('TypeaheadCtrl', function($scope, $http, limitToFilter) {
+
+  //http://www.geobytes.com/free-ajax-cities-jsonp-api.htm
+
+  $scope.cities = function(cityName) {
+    return $http.jsonp("http://localhost:8080/category");
+  };
 
 });
 

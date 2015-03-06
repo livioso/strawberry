@@ -9,6 +9,19 @@ var auth = function(req, res, next){
 		next();
 };
 
+var categories = [
+	{ category : "Fruits and Vegetables", product : "Apples"},
+	{ category : "Fruits and Vegetables", product : "Apricot"},
+	{ category : "Fruits and Vegetables", product : "Argula"},
+	{ category : "Fruits and Vegetables", product : "Asparagus"},
+	{ category : "Fruits and Vegetables", product : "Avocado"}
+];
+
+
+function getCategories(res) {
+
+}
+
 function getTodos(res) {
 
 	Todo.find(function(err, todos) {
@@ -67,7 +80,7 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/category', auth, function(req, res) {
-		res.sendStatus(404);
+		res.json(categories);
 	});
 
 	// delete a todo
