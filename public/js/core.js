@@ -97,13 +97,13 @@ app.controller('AdminCtrl', function($scope, $http) {
 });
 
 app.controller('TypeaheadCtrl', function($scope, $http, limitToFilter) {
-
-  //http://www.geobytes.com/free-ajax-cities-jsonp-api.htm
-
-  $scope.cities = function(cityName) {
-    return $http.jsonp("http://localhost:8080/category");
-  };
-
+	$http.get("/category").
+    success(function(data, status, headers, config) {
+        $scope.products = data;
+    }).
+    error(function(data, status, headers, config) {
+        alert(status);
+    });
 });
 
 app.controller('WelcomeMessageController',	function($scope, $filter) {
