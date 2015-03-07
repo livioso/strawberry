@@ -3,11 +3,13 @@ var Presets = require('./data/presets');
 
 // middleware function to be used
 // for every secured routes
-var auth = function(req, res, next){
-	if (!req.isAuthenticated())
+var auth = function(req, res, next) {
+	if (!req.isAuthenticated()) {
     res.send(401);
-	else
+	}
+	else {
 		next();
+	}
 };
 
 function getTodos(res) {
@@ -43,7 +45,7 @@ module.exports = function(app, passport) {
 		res.send(req.user);
 	});
 
-	app.post('/logout', function(req, res){
+	app.post('/logout', function(req, res) {
 
 		req.logOut();
 		// necessary, otherwise we still
@@ -98,5 +100,4 @@ module.exports = function(app, passport) {
 	app.get('/', function(req, res) {
 		res.sendfile('./public/index.html'); // load the single view file
 	});
-
 };
