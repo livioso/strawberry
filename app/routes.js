@@ -130,6 +130,7 @@ var categories = [
 	{ category : "Meat and Fish", product : "Bacon"},
 	{ category : "Meat and Fish", product : "Beef"},
 	{ category : "Meat and Fish", product : "Bratwurst"},
+	{ category : "Meat and Fish", product : "Bündnerfleisch"},
 	{ category : "Meat and Fish", product : "Chicken"},
 	{ category : "Meat and Fish", product : "Chicken Breast"},
 	{ category : "Meat and Fish", product : "Cold Cuts"},
@@ -257,6 +258,8 @@ var categories = [
 	{ category : "Snack and Sweets", product : "Peanuts"},
 	{ category : "Snack and Sweets", product : "Popcorn"},
 	{ category : "Snack and Sweets", product : "Pretzels"},
+	{ category : "Snack and Sweets", product : "Rice Cake"},
+	{ category : "Snack and Sweets", product : "Rice Chips"},
 	{ category : "Snack and Sweets", product : "Snacks"},
 	{ category : "Snack and Sweets", product : "Tortilla Chips"},
 
