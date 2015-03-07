@@ -11,15 +11,21 @@
 			<!-- left navbar -->
 			<ul class="nav navbar-nav">
 				<li>
-					<a class="nav navbar-link" href="https://github.com/livioso/webeC"><i class="fa fa-github"></i> About</a>
+					<a class="nav navbar-link" href="#">About</a>
 				</li>
 			</ul>
 
 			<!-- right navbar -->
 			<div class="nav navbar-nav navbar-right">
-				<a class="btn btn-info navbar-btn" data-toggle="modal" data-target="#myModal"><i class="fa fa-gear"></i></a>
-				<a class="btn btn-info navbar-btn" href="#/" ng-click="logout()">Livio Bieri</a>
-				<a class="btn btn-danger navbar-btn"><i class="fa fa-bell"></i></a>
+				<a class="btn btn-primary btn-sm navbar-btn" title="Change list settings." data-toggle="modal" data-target="#myModal">
+					<i class="fa fa-gear"></i>
+				</a>
+				<a class="btn btn-primary btn-sm navbar-btn" title="Log out." href="#/" ng-click="logout()">
+					<i class="fa fa-sign-out"></i>
+				</a>
+				<a class="btn btn-danger btn-sm navbar-btn" title="Check latest changes.">
+					<i class="fa fa-bell"></i>
+				</a>
 			</div>
 		</div>
 	</nav>
