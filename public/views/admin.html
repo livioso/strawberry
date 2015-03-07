@@ -17,8 +17,9 @@
 
 			<!-- right navbar -->
 			<div class="nav navbar-nav navbar-right">
-				<a class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#myModal"><span class="fa fa-gear"></i></a>
-				<a class="btn btn-danger navbar-btn" href="#/" ng-click="logout()">log out</a>
+				<a class="btn btn-info navbar-btn" data-toggle="modal" data-target="#myModal"><i class="fa fa-gear"></i></a>
+				<a class="btn btn-info navbar-btn" href="#/" ng-click="logout()">Livio Bieri</a>
+				<a class="btn btn-danger navbar-btn"><i class="fa fa-bell"></i></a>
 			</div>
 		</div>
 	</nav>
@@ -26,7 +27,7 @@
 	<div class="row welcome">
 		<div class="center-block">
 			<div class="text-center" ng-controller="WelcomeMessageController">
-				<span><img src="img/todolist.svg" /></span>
+				<span><img src="img/todolist.svg" alt="Todo List"/></span>
 				<h4> {{welcomeMessage + ', ' + welcomeUser + '.'}}</h4>
 				<h6 class="minty">{{openItemsComment}}</h6>
 			</div>
@@ -39,11 +40,13 @@
 
 			<div class="col-md-6">
 				<div class="input-group input-group-lg">
-					<div class="input-group-addon"><i class="fa fa-cart-plus"></i></div>
+					<div class="input-group-addon">
+						<i class="fa fa-cart-plus"></i>
+					</div>
 					<input type="text" class="form-control" placeholder="search for items like milk, cheese ...">
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="button">
-							<i class="fa fa-plus fa-1x"></i>
+							<i class="fa fa-plus"></i>
 						</button>
 					</span>
 				</div>
@@ -64,7 +67,8 @@
 			<ul class="list-group list-group-sm">
 				<li class="list-group-item">
 					<i class="fa fa-check-square-o finish fa-square-o shopping-list-icon"></i>
-					<span>Two Broccoli</span> <label class="label label-primary pull-right">Fruit and Vegetables</label> </li>
+					<span>Two Broccoli</span>
+					<label class="label label-primary pull-right">Fruit and Vegetables</label> </li>
 				<li class="list-group-item">
 					<i class="fa fa-check-square-o finish fa-square-o shopping-list-icon"></i>
 					<span>Pack of Basmati Rice</span>
