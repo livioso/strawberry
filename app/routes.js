@@ -23,6 +23,8 @@ function getTodos(res) {
 	});
 }
 
+
+// --- POST / GET ---
 module.exports = function(app, passport) {
 
 	// get all todos

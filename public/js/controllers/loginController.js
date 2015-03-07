@@ -1,10 +1,10 @@
 angular.module('strawberry')
 
 	.controller('LoginCtrl', function($scope, $rootScope, $http, $location) {
-  // This object will be filled by the form
+
+	// will be filled by the form
   $scope.user = {};
 
-  // Register the login() function
   $scope.login = function(){
     $http.post('/login', {
       username: $scope.user.username,
@@ -12,7 +12,7 @@ angular.module('strawberry')
     })
     .success(function(user){
       // No error: authentication OK
-      $location.url('/admin');
+      $location.url('/main');
     })
     .error(function(){
       // Error: authentication failed

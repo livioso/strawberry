@@ -2,13 +2,11 @@ var app = angular.module('strawberry', ['todoService', 'ngResource', 'ngRoute', 
 
 .config(function($routeProvider, $locationProvider, $httpProvider) {
 
-		var checkLoggedin = function($q, $timeout, $http, $location, $rootScope){
-
+	var checkLoggedin = function($q, $timeout, $http, $location, $rootScope) {
 		// Initialize a new promise
 		var deferred = $q.defer();
-
 		// Make an AJAX call to check if the user is logged in
-		$http.get('/loggedin').success(function(user){
+		$http.get('/loggedin').success(function(user) {
 
 			// Authenticated
 			if (user !== '0') {
@@ -27,14 +25,15 @@ var app = angular.module('strawberry', ['todoService', 'ngResource', 'ngRoute', 
 
 
 	$httpProvider.interceptors.push(function($q, $location) {
-    return {
+		return {
 			response: function(response) {
 				// do something on success
 				return response;
 			},
 			responseError: function(response) {
-				if (response.status === 401)
+				if (response.status === 401) {
 					$location.url('/login');
+				}
 				return $q.reject(response);
 			}
 		};
@@ -43,14 +42,11 @@ var app = angular.module('strawberry', ['todoService', 'ngResource', 'ngRoute', 
 
 	$routeProvider
 		.when('/', {
-			templateUrl: '/views/main.html'
+			templateUrl: '/views/landing.html'
 		})
-		.when('/admin', {
-			templateUrl: 'views/admin.html',
-			controller: 'AdminCtrl',
-			resolve: {
-				loggedin: checkLoggedin
-			}
+		.when('/main', {
+			templateUrl: 'views/main.html',
+			resolve: { loggedin: checkLoggedin }
 		})
 		.when('/login', {
 			templateUrl: 'views/login.html',
@@ -61,15 +57,11 @@ var app = angular.module('strawberry', ['todoService', 'ngResource', 'ngRoute', 
 		});
 })
 
-.run(function($rootScope, $http){
 
-    // Logout function is available in any pages
-    $rootScope.logout = function(){
-      $http.post('/logout');
-    };
-});
-
-
-app.controller('AdminCtrl', function($scope, $http) {
-
+.run(function($rootScope, $http) {
+	// logout function is
+	// available in any pages
+	$rootScope.logout = function() {
+		$http.post('/logout');
+	};
 });
