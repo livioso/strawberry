@@ -1,4 +1,4 @@
-var app = angular.module('strawberry', ['todoController', 'todoService', 'ngResource', 'ngRoute', 'ui.bootstrap'])
+var app = angular.module('strawberry', ['todoService', 'ngResource', 'ngRoute', 'ui.bootstrap'])
 
 .config(function($routeProvider, $locationProvider, $httpProvider) {
 
@@ -69,41 +69,9 @@ var app = angular.module('strawberry', ['todoController', 'todoService', 'ngReso
     };
 });
 
-app.controller('LoginCtrl', function($scope, $rootScope, $http, $location) {
-  // This object will be filled by the form
-  $scope.user = {};
-
-  // Register the login() function
-  $scope.login = function(){
-    $http.post('/login', {
-      username: $scope.user.username,
-      password: $scope.user.password,
-    })
-    .success(function(user){
-      // No error: authentication OK
-      $location.url('/admin');
-    })
-    .error(function(){
-      // Error: authentication failed
-			$scope.user.password = '';
-			$scope.error = true;
-      $location.url('/login');
-    });
-  };
-});
 
 app.controller('AdminCtrl', function($scope, $http) {
 
-});
-
-app.controller('TypeaheadCtrl', function($scope, $http, limitToFilter) {
-	$http.get("/category").
-    success(function(data, status, headers, config) {
-        $scope.products = data;
-    }).
-    error(function(data, status, headers, config) {
-        alert(status);
-    });
 });
 
 app.controller('WelcomeMessageController',	function($scope, $filter) {
