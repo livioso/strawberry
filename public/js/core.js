@@ -1,4 +1,4 @@
-var app = angular.module('strawberry', ['loginController', 'todoController', 'todoService', 'ngResource', 'ngRoute', 'ui.bootstrap'])
+var app = angular.module('strawberry', ['todoController', 'todoService', 'ngResource', 'ngRoute', 'ui.bootstrap'])
 
 .config(function($routeProvider, $locationProvider, $httpProvider) {
 
