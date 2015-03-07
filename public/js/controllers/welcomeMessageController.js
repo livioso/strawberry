@@ -3,7 +3,7 @@ angular.module('strawberry')
 .controller('WelcomeMessageController',	function($scope, $filter) {
 	var date = new Date();
 	var hourOfDay = $filter('date')(date.getTime(), 'H');
-	var openItemsCount = 4;
+	var openItemsCount = 2;
 
 	$scope.welcomeUser = 'Livio';
 
