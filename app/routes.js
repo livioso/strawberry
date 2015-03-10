@@ -1,4 +1,4 @@
-var Shoppinglist = require('./models/shoppinglist');
+var Shoppinglist = require('./models/shoppinglists');
 var Presets = require('./data/presets');
 
 
@@ -34,6 +34,17 @@ module.exports = function(app, passport) {
 
 		// from mongo db -> via mongoose
 		getShoppinglists(res);
+	});
+
+	app.post('/api/item', auth, function(req, res) {
+		new Todo({
+				user_id    : req.cookies.user_id,
+				content    : req.body.content,
+				updated_at : Date.now()
+		}).save( function ( err, todo, count ){
+			if( err ) return next( err );
+			res.redirect( '/' );
+		});
 	});
 
 	app.get('/loggedin', function(req, res) {
