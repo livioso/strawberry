@@ -1,4 +1,5 @@
 var Shoppinglist = require('./models/shoppinglists');
+var Item = require('./models/items');
 var Presets = require('./data/presets');
 
 
@@ -25,22 +26,32 @@ function getShoppinglists(res) {
 	});
 }
 
+function getItems(res) {
+	Item.find(function(err, items) {
+
+		if (err) {
+			res.send(err);
+		}
+
+		res.json(items);
+	});
+}
 
 // --- POST / GET ---
 module.exports = function(app, passport) {
 
 	// get all shoppinglists
-	app.get('/api/shoppinglists', auth, function(req, res) {
+	// FIXME see /api/item
+	app.get('/api/items', function(req, res) {
 
 		// from mongo db -> via mongoose
-		getShoppinglists(res);
+		getItems(res);
 	});
 
-	app.post('/api/item', auth, function(req, res) {
-		new Todo({
-				user_id    : req.cookies.user_id,
-				content    : req.body.content,
-				updated_at : Date.now()
+	// FIXME make me use middleware auth again :-(
+	app.post('/api/item', function(req, res) {
+		new Item({
+				itemText : req.body.itemText
 		}).save( function ( err, todo, count ){
 			if( err ) return next( err );
 			res.redirect( '/' );
