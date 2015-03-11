@@ -84,26 +84,6 @@ module.exports = function(app, passport) {
 		res.sendStatus(404);
 	});
 
-	// create todo and send back all todos after creation
-	app.post('/api/todos', auth, function(req, res) {
-
-		/*
-		Todo.create({
-			text : req.body.text,
-			done : false
-		},
-		function(err, todo) {
-
-			if (err) {
-				res.send(err);
-			}
-
-			getTodos(res);
-		});
-		*/
-
-	});
-
 	app.get('/category', auth, function(req, res) {
 
 		var products = Presets.categories.map(function(item) {
@@ -112,23 +92,6 @@ module.exports = function(app, passport) {
 
 		res.json(products);
 	});
-
-	// delete a todo
-	/*
-	app.delete('/api/todos/:todo_id', auth, function(req, res) {
-		Todo.remove({
-			_id : req.params.todo_id
-		},
-		function(err, todo) {
-			if (err) {
-				res.send(err);
-			}
-
-			getTodos(res);
-		});
-	});
-	*/
-
 
 	// -- application --
 	app.get('/', function(req, res) {
