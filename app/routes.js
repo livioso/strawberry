@@ -48,11 +48,20 @@ module.exports = function(app, passport) {
 		getItems(res);
 	});
 
+	app.put('/api/item/:id', function(req, res) {
+
+	Item.findOneAndUpdate(
+		{ _id : req.params.id },
+		{$set: { itemText: req.body.itemText, itemChecked: req.body.itemChecked }}, {upsert:true}, function(err, doc){
+			if (err) return res.send(500, { error: err });
+			return res.send("succesfully saved");
+		});
+
+	});
 	// FIXME make me use middleware auth again :-(
 	app.post('/api/item', function(req, res) {
-		new Item({
-				itemText : req.body.itemText
-		}).save( function ( err, todo, count ){
+
+		new Item(req.body).save( function ( err, todo, count ){
 			if( err ) return next( err );
 			res.redirect( '/' );
 		});
