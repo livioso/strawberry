@@ -70,6 +70,23 @@ module.exports = function(app, passport) {
 		});
 	});
 
+
+	app.put('/api/list/:id', function(req, res) {
+
+	});
+
+	app.post('/api/list', function(req, res) {
+
+		new Shoppinglist(req.body).save( function ( err, list, count ){
+			if(err) return next( err );
+			res.redirect( '/' );
+		});
+	});
+
+	app.get('/api/list', function(req, res) {
+		getShoppinglists(res);
+	});
+
 	app.get('/loggedin', function(req, res) {
 		// fixme: this is a bit hacky
 		res.send(req.isAuthenticated() ? req.user : '0');

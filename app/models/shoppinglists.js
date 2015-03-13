@@ -9,6 +9,7 @@ var Schema = mongoose.Schema;
 var shoppinglistSchema = new mongoose.Schema({
 	name: String,
 	items: [{
+		checked: Boolean,
 		name: String
 	}],
 	members: [{
