@@ -72,7 +72,32 @@ module.exports = function(app, passport) {
 
 
 	app.put('/api/list/:id', function(req, res) {
+			Shoppinglist.findOneAndUpdate(
+			{ _id: req.params.id },
+			{ $set: { name: req.body.name},
+				$addToSet: { items: req.body.items}
+			}, {upsert: true}, function(err, doc){
+				if(err) {
+					return res.send(500, { error: err });
+				}
 
+			return res.send("succesfully saved");
+		});
+
+	});
+
+	app.get('/api/list/:idlist/:iditem', function(req, res) {
+		Shoppinglist.aggregate([
+			{$match:{_id: req.params.idlist}},
+			{$unwind:"$items"},
+			{$match:{"items._id": req.params.iditem}}
+		], function(err, items) {
+			if(err) {
+				res.send(500, {error: err});
+			} else {
+				res.json(items);
+			}
+		});
 	});
 
 	app.post('/api/list', function(req, res) {

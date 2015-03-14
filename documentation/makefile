@@ -39,6 +39,7 @@ pdf: prepare
 		--highlight-style=tango \
 		--table-of-contents \
 		--toc-depth=4 \
+		-fmarkdown-implicit_figures \
 		--number-sections \
 		--chapter $(BUILDDIR)/$(DOCUMENTMARKDOWN) $(ASSETSDIR)/$(YAMLMETADATA) \
 		--output $(BUILDDIR)/$(DOCUMENTPDF)
