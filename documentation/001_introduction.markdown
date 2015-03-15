@@ -1,30 +1,31 @@
 
+# Introduction
 
-# Motivation
+## What's the point?
 
-**Strawberry** is a collaborative shopping list. How often have you been in the is situation that your fridge was empty because you or your girlfriend or flat mates forgot to buy the get all the items on the list because the list was not with them but pinned on the fridge. Now your 
+**Strawberry** is a collaborative shopping list. Strawberry aims to simplify doing grocceries in households with more than one person. No more complications because you forgot that piece of paper called groccery list at home or you did not see the message from your girlfriend telling you to bring that one important item.
 
 ![StrawberryBanner](figures/StrawberryBanner.png)
 
-## Goals
+**Strawberry** in this early version will support the following features:
 
-**Strawberry** has the following goals in mind:
++ **Shared lists** with as many users as you wish. You can simply invite everyone with a Strawberry account to take part in your list. Each user can many have as many seperate lists with different people as he wants. For example: *"me and girlfriend", "me and family" or "me and my flatmates".* Of course it is also possible to have a private list just for yourself.
 
-- Preset for the most common products (search / suggestions).
-- Easy user and list management. Each user should have as many lists as he wants. Other users can simply be invited to them.
-- Focused on ease of use. Simple, well-thought user interface.
++ **Simple item-based lists** simply add items and remove them by checking them off the list. You can add a short note to each item seperately. For example if you want to have a certain brand of chocolate.
 
++ **[Twitter Style Typeahead](https://twitter.github.io/typeahead.js/)** with common shopping items. Such as "Apples", "Bananas" or "Strawberries" in item input field. 
+
+# Requirements
 
 ![Strawberry](figures/Screenshot.png)
 
 ## User Stories
 
-Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper.
-
-
 ## Usecases
 
 Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. 
+
+![Strawberry](figures/Usecases.pdf)
 
 ### Usecase: Add User To Database
 | **Attribute**        | **Description**                  |
