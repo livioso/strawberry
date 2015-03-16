@@ -5,12 +5,8 @@ module.exports = function(passport) {
 	passport.use(new LocalStrategy(
 		function(username, password, done) {
 
-			if (username === "livio" && password === "livio") {
-				return done(null, {name: "Livio"});
-			}
-
-			if (username === "maria" && password === "maria") {
-				return done(null, {name: "Maria"});
+			if (username === process.env.DEVUSERNAME && password === process.env.DEVUSERPW) {
+				return done(null, {name: "DEVUSER"});
 			}
 
 			return done(null, false, { message: 'Incorrect username.' });
