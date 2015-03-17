@@ -84,11 +84,11 @@ module.exports = function(app, passport) {
   });
 
   app.get('/api/list/:idlist/:iditem', function(req, res) {
-
     Shoppinglist.aggregate([
       {$match:{_id: new ObjectId(req.params.idlist)}},
       {$unwind:"$items"},
-      {$match:{"items._id": new ObjectId(req.params.iditem)}}
+      {$match:{"items._id": new ObjectId(req.params.iditem)}},
+      {$project:{_id : 0, item:"$adwordsChanges.items"}}
     ], function(err, item) {
       if(err) {
         res.send(500, {error: err});
