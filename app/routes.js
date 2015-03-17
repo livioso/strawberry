@@ -1,6 +1,7 @@
 var Shoppinglist = require('./models/shoppinglists');
 var Item = require('./models/items');
 var Presets = require('./data/presets');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 
 // middleware function to be used
@@ -58,6 +59,7 @@ module.exports = function(app, passport) {
     });
 
   });
+
   // FIXME make me use middleware auth again :-(
   app.post('/api/item', function(req, res) {
 
@@ -66,7 +68,6 @@ module.exports = function(app, passport) {
       res.redirect( '/' );
     });
   });
-
 
   app.put('/api/list/:id', function(req, res) {
       Shoppinglist.findOneAndUpdate(
@@ -80,25 +81,24 @@ module.exports = function(app, passport) {
 
       return res.send("succesfully saved");
     });
-
   });
 
   app.get('/api/list/:idlist/:iditem', function(req, res) {
+
     Shoppinglist.aggregate([
-      {$match:{_id: req.params.idlist}},
+      {$match:{_id: new ObjectId(req.params.idlist)}},
       {$unwind:"$items"},
-      {$match:{"items._id": req.params.iditem}}
-    ], function(err, items) {
+      {$match:{"items._id": new ObjectId(req.params.iditem)}}
+    ], function(err, item) {
       if(err) {
         res.send(500, {error: err});
       } else {
-        res.json(items);
+        res.json(item);
       }
     });
   });
 
   app.post('/api/list', function(req, res) {
-
     new Shoppinglist(req.body).save( function ( err, list, count ){
       if(err) return next( err );
       res.redirect( '/' );
