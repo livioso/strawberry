@@ -41,5 +41,5 @@ gulp test
 
 ![Screenshot](/documentation/figures/Screenshot.png?raw=true "Screenshot")
 
-> ###### Contribuation
-> If you have something interesting to contribute or you just know how to do something better, simply me send a pull request. :-)
+> ###### Contribution
+> If you have something interesting to contribute or you just know how to do something better, simply send me a pull request. :-)
