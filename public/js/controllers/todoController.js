@@ -3,7 +3,7 @@ angular.module('strawberry')
   '$scope',
   '$http',
   'Todos',
-  function ($scope, $http) {
+  function () {
     'use strict';  // FIXME Not yet implemmented
   }
 ]);
