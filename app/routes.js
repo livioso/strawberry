@@ -39,28 +39,6 @@ function getItems(res) {
 module.exports = function (app, passport) {
   'use strict';
 
-  // get all shoppinglists
-  // FIXME see /api/item
-  app.get('/api/items', function (req, res) {
-    // from mongo db -> via mongoose
-    getItems(res);
-  });
-
-  app.put('/api/item/:id', function (req, res) {
-    Item.findOneAndUpdate({_id: req.params.id}, {
-      $set: {
-        itemText: req.body.itemText,
-        itemChecked: req.body.itemChecked
-      }
-    }, {upsert: true}, function (err) {
-      if (err) {
-        return res.send(500, {error: err});
-      } else {
-        return res.send('succesfully saved');
-      }
-    });
-  });
-
   app.put('/api/list/:id', function (req, res) {
     Shoppinglist.findOneAndUpdate({_id: req.params.id}, {
       $set: {name: req.body.name},
@@ -87,9 +65,9 @@ module.exports = function (app, passport) {
       }
     ], function (err, item) {
       if (err) {
-        res.send(500, {error: err});
+        return res.send(500, {error: err});
       } else {
-        res.json(item);
+        return res.json(item);
       }
     });
   });
