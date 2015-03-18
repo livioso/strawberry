@@ -4,20 +4,23 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
 var bower = require('gulp-bower');
 
 gulp.task('heroku:production', function(){
+  'use strict';
   runSeq('bower', 'sass');
 });
 
 gulp.task('jshint', function() {
-  return gulp.src(['**/*.js', '!node_modules/**/*.js', '!public/components/**/*.js'])
+  'use strict';
+  return gulp.src(
+    ['**/*.js','!node_modules/**/*.js','!public/components/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
 });
 
 gulp.task('sass', function(done) {
+  'use strict';
   gulp.src('./public/scss/*.scss')
     .pipe(sass())
     .pipe(gulp.dest('./public'))
@@ -26,6 +29,7 @@ gulp.task('sass', function(done) {
     })).on('end', done);
 });
 
-gulp.task('bower', function(done) {
+gulp.task('bower', function() {
+  'use strict';
 	return bower();
 });

@@ -7,6 +7,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 // middleware function to be used
 // for every secured routes
 var auth = function(req, res, next) {
+  'use strict';
   if (!req.isAuthenticated()) {
     res.sendStatus(401);
   } else {
@@ -16,6 +17,7 @@ var auth = function(req, res, next) {
 
 
 function getShoppinglists(res) {
+  'use strict';
   Shoppinglist.find(function(err, lists) {
     if (err) {
       res.send(err);
@@ -26,6 +28,7 @@ function getShoppinglists(res) {
 }
 
 function getItems(res) {
+  'use strict';
   Item.find(function(err, items) {
     if (err) {
       res.send(err);
@@ -37,6 +40,7 @@ function getItems(res) {
 
 // --- POST / GET ---
 module.exports = function(app, passport) {
+  'use strict';
 
   // get all shoppinglists
   // FIXME see /api/item
@@ -50,45 +54,39 @@ module.exports = function(app, passport) {
 
     Item.findOneAndUpdate(
       { _id: req.params.id },
-      { $set: { itemText: req.body.itemText, itemChecked: req.body.itemChecked }}, {upsert: true}, function(err, doc){
+      { $set: {
+          itemText: req.body.itemText,
+          itemChecked: req.body.itemChecked
+      }}, {upsert: true}, function(err){
         if(err) {
           return res.send(500, { error: err });
         }
 
-      return res.send("succesfully saved");
+      return res.send('succesfully saved');
     });
 
-  });
-
-  // FIXME make me use middleware auth again :-(
-  app.post('/api/item', function(req, res) {
-
-    new Item(req.body).save( function ( err, todo, count ){
-      if(err) return next( err );
-      res.redirect( '/' );
-    });
   });
 
   app.put('/api/list/:id', function(req, res) {
       Shoppinglist.findOneAndUpdate(
       { _id: req.params.id },
-      { $set: { name: req.body.name},
-        $addToSet: { items: req.body.items}
-      }, {upsert: true}, function(err, doc){
+      { $set: {name: req.body.name},
+        $addToSet: {items: req.body.items}
+      }, {upsert: true}, function(err){
         if(err) {
           return res.send(500, { error: err });
         }
 
-      return res.send("succesfully saved");
+      return res.send('succesfully saved');
     });
   });
 
   app.get('/api/list/:idlist/:iditem', function(req, res) {
     Shoppinglist.aggregate([
       {$match:{_id: new ObjectId(req.params.idlist)}},
-      {$unwind:"$items"},
-      {$match:{"items._id": new ObjectId(req.params.iditem)}},
-      {$project:{_id : 0, item:"$adwordsChanges.items"}}
+      {$unwind:'$items'},
+      {$match:{'items._id': new ObjectId(req.params.iditem)}},
+      {$project:{_id : 0, item: '$adwordsChanges.items'}}
     ], function(err, item) {
       if(err) {
         res.send(500, {error: err});
@@ -99,9 +97,8 @@ module.exports = function(app, passport) {
   });
 
   app.post('/api/list', function(req, res) {
-    new Shoppinglist(req.body).save( function ( err, list, count ){
-      if(err) return next( err );
-      res.redirect( '/' );
+    new Shoppinglist(req.body).save( function (){
+      return res.send('succesfully saved');
     });
   });
 
