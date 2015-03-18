@@ -19,7 +19,8 @@ gulp.task('jshint', function () {
     '!node_modules/**/*.js',
     '!public/components/**/*.js'
   ]).pipe(jshint())
-    .pipe(jshint.reporter(stylish));
+    .pipe(jshint.reporter(stylish))
+    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('jscs', function () {
