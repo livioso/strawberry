@@ -1,5 +1,4 @@
 var Shoppinglist = require('./models/shoppinglists');
-var Item = require('./models/items');
 var Presets = require('./data/presets');
 var ObjectId = require('mongoose').Types.ObjectId;
 // middleware function to be used
@@ -20,17 +19,6 @@ function getShoppinglists(res) {
       res.send(err);
     } else {
       res.json(lists);
-    }
-  });
-}
-
-function getItems(res) {
-  'use strict';
-  Item.find(function (err, items) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(items);
     }
   });
 }
