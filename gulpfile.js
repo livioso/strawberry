@@ -1,10 +1,12 @@
 var gulp = require('gulp');
 var runSeq = require('run-sequence');
 var jshint = require('gulp-jshint');
+var jscs = require('gulp-jscs');
 var stylish = require('jshint-stylish');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var bower = require('gulp-bower');
+
 
 gulp.task('heroku:production', function(){
   'use strict';
@@ -17,6 +19,13 @@ gulp.task('jshint', function() {
     ['**/*.js','!node_modules/**/*.js','!public/components/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
+});
+
+gulp.task('jscs', function() {
+  'use strict';
+  return gulp.src(
+    ['**/*.js','!node_modules/**/*.js','!public/components/**/*.js'])
+    .pipe(jscs());
 });
 
 gulp.task('sass', function(done) {
