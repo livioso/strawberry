@@ -1,69 +1,59 @@
-angular.module('strawberry',
-    ['todoService', 'ngResource', 'ngRoute', 'ui.bootstrap'])
+angular.module('strawberry', [
+  'todoService',
+  'ngResource',
+  'ngRoute',
+  'ui.bootstrap'
+])
 
-.config(function($routeProvider, $locationProvider, $httpProvider) {
+.config(function ($routeProvider, $locationProvider, $httpProvider) {
   'use strict';
-	var checkLoggedin = function($q, $timeout, $http, $location) {
-		// Initialize a new promise
-		var deferred = $q.defer();
-		// Make an AJAX call to check if the user is logged in
-		$http.get('/loggedin').success(function(user) {
+  var checkLoggedin = function ($q, $timeout, $http, $location) {
+    // Initialize a new promise
+    var deferred = $q.defer();
 
-			// Authenticated
-			if (user !== '0') {
-				deferred.resolve();
-			}
+    // Make an AJAX call to check if the user is logged in
+    $http.get('/loggedin').success(function (user) {
+      // Authenticated
+      if (user !== '0') {
+        deferred.resolve();
+      }  // Not Authenticated
+      else {
+        deferred.reject();
+        $location.url('/login');
+      }
+    });
+    return deferred.promise;
+  };
 
-			// Not Authenticated
-			else {
-				deferred.reject();
-				$location.url('/login');
-			}
-		});
+  $httpProvider.interceptors.push(function ($q, $location) {
+    return {
+      response: function (response) {
+        // do something on success
+        return response;
+      },
+      responseError: function (response) {
+        if (response.status === 401) {
+          $location.url('/login');
+        }
+        return $q.reject(response);
+      }
+    };
+  });
 
-		return deferred.promise;
-	};
-
-
-	$httpProvider.interceptors.push(function($q, $location) {
-		return {
-			response: function(response) {
-				// do something on success
-				return response;
-			},
-			responseError: function(response) {
-				if (response.status === 401) {
-					$location.url('/login');
-				}
-				return $q.reject(response);
-			}
-		};
-	});
-
-
-	$routeProvider
-		.when('/', {
-			templateUrl: '/views/landing.html'
-		})
-		.when('/main', {
-			templateUrl: 'views/main.html',
-			resolve: { loggedin: checkLoggedin }
-		})
-		.when('/login', {
-			templateUrl: 'views/login.html',
-			controller: 'LoginCtrl'
-		})
-		.otherwise({
-			redirectTo: '/'
-		});
+  $routeProvider.when('/', {templateUrl: '/views/landing.html'}).when('/main', {
+    templateUrl: 'views/main.html',
+    resolve: {loggedin: checkLoggedin}
+  }).when('/login', {
+    templateUrl: 'views/login.html',
+    controller: 'LoginCtrl'
+  }).otherwise({redirectTo: '/'});
 })
 
-
-.run(function($rootScope, $http) {
+.run(function ($rootScope, $http) {
   'use strict';
-	// logout function is
-	// available in any pages
-	$rootScope.logout = function() {
-		$http.post('/logout');
-	};
+  // logout function is
+  // available in any pages
+  $rootScope.logout = function () {
+    $http.post('/logout');
+  };
 });

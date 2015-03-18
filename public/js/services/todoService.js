@@ -1,18 +1,18 @@
 angular.module('todoService', [])
-
-  // each function returns a promise object
-  .factory('Todos', ['$http',function($http) {
+.factory('Todos', [
+  '$http',
+  function ($http) {
     'use strict';
-
     return {
-      get : function() {
+      get: function () {
         return $http.get('/api/todos');
       },
-      create : function(todoData) {
+      create: function (todoData) {
         return $http.post('/api/todos', todoData);
       },
-      delete : function(id) {
+      delete: function (id) {
         return $http.delete('/api/todos/' + id);
       }
     };
-  }]);
+  }
+]);

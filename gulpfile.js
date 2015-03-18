@@ -7,38 +7,39 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var bower = require('gulp-bower');
 
-
-gulp.task('heroku:production', function(){
+gulp.task('heroku:production', function () {
   'use strict';
   runSeq('bower', 'sass');
 });
 
-gulp.task('jshint', function() {
+gulp.task('jshint', function () {
   'use strict';
-  return gulp.src(
-    ['**/*.js','!node_modules/**/*.js','!public/components/**/*.js'])
-    .pipe(jshint())
+  return gulp.src([
+    '**/*.js',
+    '!node_modules/**/*.js',
+    '!public/components/**/*.js'
+  ]).pipe(jshint())
     .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('jscs', function() {
+gulp.task('jscs', function () {
   'use strict';
-  return gulp.src(
-    ['**/*.js','!node_modules/**/*.js','!public/components/**/*.js'])
-    .pipe(jscs());
+  return gulp.src([
+    '**/*.js',
+    '!node_modules/**/*.js',
+    '!public/components/**/*.js'
+  ]).pipe(jscs());
 });
 
-gulp.task('sass', function(done) {
+gulp.task('sass', function (done) {
   'use strict';
   gulp.src('./public/scss/*.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('./public'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    })).on('end', done);
+    .pipe(sass()).pipe(gulp.dest('./public'))
+    .pipe(minifyCss({keepSpecialComments: 0}))
+    .on('end', done);
 });
 
-gulp.task('bower', function() {
+gulp.task('bower', function () {
   'use strict';
-	return bower();
+  return bower();
 });
