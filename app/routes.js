@@ -45,7 +45,7 @@ module.exports = function (app, passport) {
       $addToSet: {items: req.body.items}
     }, {upsert: true}, function (err) {
       if (err) {
-        return res.send(500, {error: err});
+        return res.sendStatus(500, {error: err});
       } else {
         return res.send('succesfully saved');
       }
@@ -65,7 +65,7 @@ module.exports = function (app, passport) {
       }
     ], function (err, item) {
       if (err) {
-        return res.send(500, {error: err});
+        return res.sendStatus(500, {error: err});
       } else {
         return res.json(item);
       }
