@@ -6,14 +6,14 @@ var mongoose = require('mongoose');
 // understanding-relationships-foreign-keys-in-mongoose
 
 var shoppinglistSchema = new mongoose.Schema({
-	name: String,
-	items: [{
-		checked: Boolean,
-		name: String
-	}],
-	members: [{
-		member: String
-	}]
+  name: String,
+  items: [{
+    checked: Boolean,
+    name: String
+  }],
+  members: [{
+    member: String
+  }]
 });
 
 module.exports = mongoose.model('shoppinglist', shoppinglistSchema);

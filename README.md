@@ -1,7 +1,6 @@
 ![Screenshot](/documentation/figures/StrawberryBanner.png?raw=true "Banner")
 
-
-[![Build Status](https://magnum.travis-ci.com/livioso/strawberry.svg?token=kpWqqJtsH64npvSXGE75&branch=master&style=flat)](https://magnum.travis-ci.com/livioso/strawberry) [![Heroku](https://heroku-badge.herokuapp.com/?app=strawberry-livioso&style=flat)](https://strawberry-livioso.herokuapp.com/) [![Packages](https://david-dm.org/livioso/strawberry.svg)](https://github.com/livioso/strawberry/blob/master/package.json)
+[![Build Status](https://travis-ci.org/livioso/strawberry.svg)](https://travis-ci.org/livioso/strawberry) [![Heroku](https://heroku-badge.herokuapp.com/?app=strawberry-livioso&style=flat)](https://strawberry-livioso.herokuapp.com/) [![Packages](https://david-dm.org/livioso/strawberry.svg)](https://github.com/livioso/strawberry/blob/master/package.json)
 
 **Strawberry** is a simple collaborative shopping list developed using the MEAN stack (MongoDB, ExpressJS, AngularJS and Node.js) and serves as a personal learning playground for those technologies. :-)
 
