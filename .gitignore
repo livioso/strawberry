@@ -1,8 +1,14 @@
 # documentation build
 documentation/build/
 
+# compiled by sass
 public/main.css
+
+# bower components
 public/components/
+
+# code coverage report
+coverage/
 
 # --------------------
 # OSX Files

@@ -6,6 +6,7 @@ var stylish = require('jshint-stylish');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var bower = require('gulp-bower');
+var coveralls = require('gulp-coveralls');
 
 gulp.task('heroku:production', function () {
   'use strict';
@@ -17,7 +18,8 @@ gulp.task('jshint', function () {
   return gulp.src([
     '**/*.js',
     '!node_modules/**/*.js',
-    '!public/components/**/*.js'
+    '!public/components/**/*.js',
+    '!coverage/**/*.js'
   ]).pipe(jshint())
     .pipe(jshint.reporter(stylish))
     .pipe(jshint.reporter('fail'));
@@ -28,7 +30,8 @@ gulp.task('jscs', function () {
   return gulp.src([
     '**/*.js',
     '!node_modules/**/*.js',
-    '!public/components/**/*.js'
+    '!public/components/**/*.js',
+    '!coverage/**/*.js'
   ]).pipe(jscs());
 });
 
@@ -43,4 +46,10 @@ gulp.task('sass', function (done) {
 gulp.task('bower', function () {
   'use strict';
   return bower();
+});
+
+gulp.task('coveralls', function () {
+  'use strict';
+  gulp.src('coverage/**/lcov.info')
+    .pipe(coveralls());
 });
