@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
 // fixme:
 // see http://mongoosejs.com/docs/populate.html

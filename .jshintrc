@@ -55,5 +55,14 @@
    */
 
   // Suppress warnings about == null comparisons.
-  "eqnull": true
+  "eqnull": true,
+
+
+  "globals": {
+    "angular": false,
+    "$": false,
+    "describe": false,
+    "it": false,
+    "expect": false
+  }
 }

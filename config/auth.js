@@ -1,12 +1,14 @@
 var LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function(passport) {
+  'use strict';
 
   passport.use(
     new LocalStrategy(
       function(username, password, done) {
-        if (username === process.env.DEVUSERNAME && password === process.env.DEVUSERPW) {
-          return done(null, {name: "DEVUSER"});
+        if (username === process.env.DEVUSERNAME &&
+            password === process.env.DEVUSERPW) {
+          return done(null, {name: 'DEVUSER'});
         }
 
         return done(null, false, { message: 'Incorrect username.' });

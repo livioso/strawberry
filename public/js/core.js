@@ -1,8 +1,9 @@
-var app = angular.module('strawberry', ['todoService', 'ngResource', 'ngRoute', 'ui.bootstrap'])
+angular.module('strawberry',
+    ['todoService', 'ngResource', 'ngRoute', 'ui.bootstrap'])
 
 .config(function($routeProvider, $locationProvider, $httpProvider) {
-
-	var checkLoggedin = function($q, $timeout, $http, $location, $rootScope) {
+  'use strict';
+	var checkLoggedin = function($q, $timeout, $http, $location) {
 		// Initialize a new promise
 		var deferred = $q.defer();
 		// Make an AJAX call to check if the user is logged in
@@ -59,6 +60,7 @@ var app = angular.module('strawberry', ['todoService', 'ngResource', 'ngRoute', 
 
 
 .run(function($rootScope, $http) {
+  'use strict';
 	// logout function is
 	// available in any pages
 	$rootScope.logout = function() {
