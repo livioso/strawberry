@@ -29,13 +29,22 @@ gulp build
 Now we can start the server:
 
 ```
-node server.js
+npm start
 ```
 
-#### Run the tests
+##### Run the tests
 ```
 gulp test
 ```
+
+##### Run JSCS and JSHint
+```
+gulp jscs
+```
+```
+gulp jshint
+```
+
 
 
 ![Screenshot](/documentation/figures/Screenshot.png?raw=true "Screenshot")
