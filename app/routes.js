@@ -12,17 +12,6 @@ var auth = function (req, res, next) {
   }
 };
 
-function getShoppinglists(res) {
-  'use strict';
-  Shoppinglist.find(function (err, lists) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(lists);
-    }
-  });
-}
-
 // --- POST / GET ---
 module.exports = function (app, passport) {
   'use strict';
@@ -62,7 +51,14 @@ module.exports = function (app, passport) {
   });
 
   app.get('/api/list', function (req, res) {
-    getShoppinglists(res);
+    Shoppinglist.find(function (err, lists) {
+    if (err) {
+      return res.sendStatus(500, {error: err});
+    } else {
+      return res.json(lists);
+    }
+  });
+
   });
 
   app.get('/loggedin', function (req, res) {
