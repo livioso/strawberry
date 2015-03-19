@@ -1,6 +1,7 @@
 var Shoppinglist = require('./models/shoppinglists');
 var Presets = require('./data/presets');
 var ObjectId = require('mongoose').Types.ObjectId;
+
 // middleware function to be used
 // for every secured routes
 var auth = function (req, res, next) {
@@ -52,13 +53,12 @@ module.exports = function (app, passport) {
 
   app.get('/api/list', function (req, res) {
     Shoppinglist.find(function (err, lists) {
-    if (err) {
-      return res.sendStatus(500, {error: err});
-    } else {
-      return res.json(lists);
-    }
-  });
-
+      if (err) {
+        return res.sendStatus(500, {error: err});
+      } else {
+        return res.json(lists);
+      }
+    });
   });
 
   app.get('/loggedin', function (req, res) {
