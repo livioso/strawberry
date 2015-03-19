@@ -45,12 +45,7 @@ module.exports = function (app, passport) {
       {$match: {_id: new ObjectId(req.params.idlist)}},
       {$unwind: '$items'},
       {$match: {'items._id': new ObjectId(req.params.iditem)}},
-      {
-        $project: {
-          _id: 0,
-          item: '$adwordsChanges.items'
-        }
-      }
+      {$project: {_id: false, item: '$items'}}
     ], function (err, item) {
       if (err) {
         return res.sendStatus(500, {error: err});
