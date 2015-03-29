@@ -60,19 +60,18 @@
 		</div>
 	</div>
 
-
-	<div class="row shopping-list-margin">
+  <div class="row shopping-list-margin" ng-controller="shoppingListController">
 		<div class="col-md-3">
 			<div class="list-group">
-				<a class="list-group-item active"><i class="fa fa-list-ul shopping-list-icon"></i> Maria + Livio</a>
-				<a class="list-group-item"><i class="fa fa-list-ul shopping-list-icon"></i> Ikea</a>
-				<a class="list-group-item"><i class="fa fa-list-ul shopping-list-icon"></i> Wunschliste</a>
+				<a class="list-group-item" ng-repeat="shoppinglist in shoppinglists">
+          <i class="fa fa-list-ul shopping-list-icon"></i> {{shoppinglist.name}}
+        </a>
 			</div>
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-md-6" ng-controller="shoppingListController">
 			<ul class="list-group list-group-sm">
-				<li class="list-group-item">
+				<li class="list-group-item" ng-if="loading">
 					<i class="fa fa-check-square-o finish fa-square-o shopping-list-icon"></i>
 					<span>Two Broccoli</span>
 					<label class="label label-primary pull-right">Fruit and Vegetables</label> </li>
