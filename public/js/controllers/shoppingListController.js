@@ -5,6 +5,8 @@ angular.module('strawberry')
   function ($scope, $http) {
     'use strict';
 
+    $scope.formData = {};
+
     // set the type ahead data
     $http.get('/category').success(function (data) {
       $scope.products = data;
@@ -19,6 +21,7 @@ angular.module('strawberry')
       ];
 
     $scope.createShoppingItem = function () {
+      console.log($scope.formData.text);
     };
   }
 ]);
