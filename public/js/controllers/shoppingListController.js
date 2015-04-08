@@ -21,6 +21,9 @@ angular.module('strawberry')
       ];
 
     $scope.createShoppingItem = function () {
+
+      //:w
+      //shoppingListService
       console.log($scope.formData.text);
     };
   }

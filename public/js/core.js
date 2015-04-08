@@ -1,5 +1,5 @@
 angular.module('strawberry', [
-  'todoService',
+  'shoppingListService',
   'ngResource',
   'ngRoute',
   'ui.bootstrap'
