@@ -2,7 +2,8 @@ angular.module('strawberry')
 .controller('shoppingListController', [
   '$scope',
   '$http',
-  function ($scope, $http) {
+  'ShoppingList',
+  function ($scope, $http, ShoppingList) {
     'use strict';
 
     $scope.formData = {};
@@ -21,10 +22,7 @@ angular.module('strawberry')
       ];
 
     $scope.createShoppingItem = function () {
-
-      //:w
-      //shoppingListService
-      console.log($scope.formData.text);
+      ShoppingList.create($scope.formData.text);
     };
   }
 ]);
