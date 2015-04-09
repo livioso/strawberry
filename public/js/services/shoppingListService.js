@@ -5,7 +5,7 @@ angular.module('shoppingListService', [])
     'use strict';
     return {
       get: function () {
-        return $http.get('/api/todos');
+        return $http.get('/api/list/55081de2162072120758fc53');
       },
       create: function (shoppinglistdata) {
 

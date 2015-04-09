@@ -71,20 +71,11 @@
 
 		<div class="col-md-6" ng-controller="shoppingListController">
 			<ul class="list-group list-group-sm">
-				<li class="list-group-item" ng-if="loading">
+				<li class="list-group-item" ng-repeat="item in shoppinglistItems">
 					<i class="fa fa-check-square-o finish fa-square-o shopping-list-icon"></i>
-					<span>Two Broccoli</span>
-					<label class="label label-primary pull-right">Fruit and Vegetables</label> </li>
-				<li class="list-group-item">
-					<i class="fa fa-check-square-o finish fa-square-o shopping-list-icon"></i>
-					<span>Pack of Basmati Rice</span>
-					<label class="label label-primary pull-right">Grain Products</label>
-				</li>
-				<li class="list-group-item finished disabled">
-					<i class="fa fa-check-square-o finish shopping-list-icon"></i>
-					<span>Some Cottage Cheese</span>
-					<label class="label label-primary pull-right">Milk and cheese</label>
-				</li>
+          <span>{{item.name}}</span>
+					<label class="label label-primary pull-right">Fruit and Vegetables</label>
+        </li>
 			</ul>
 		</div>
 	</div>

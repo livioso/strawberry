@@ -11,10 +11,13 @@ angular.module('strawberry')
     // set the type ahead data
     $http.get('/category').success(function (data) {
       $scope.products = data;
-    }).error(function () {
     });
 
     $scope.loading = true;
+
+    ShoppingList.get().success(function (data) {
+      $scope.shoppinglistItems = data.items;
+    });
 
     $scope.shoppinglists = [
         {'name': 'Maria und Livio'},
