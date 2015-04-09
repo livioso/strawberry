@@ -51,6 +51,18 @@ module.exports = function (app, passport) {
     });
   });
 
+  app.get('/api/list/:idlist', function (req, res) {
+    Shoppinglist.aggregate([
+      {$match: {_id: new ObjectId(req.params.idlist)}}
+    ], function (err, lists) {
+      if (err) {
+        return res.sendStatus(500, {error: err});
+      } else {
+        return res.json(lists);
+      }
+    });
+  });
+
   app.get('/api/list', function (req, res) {
     Shoppinglist.find(function (err, lists) {
       if (err) {
