@@ -19,7 +19,7 @@ module.exports = function (app, passport) {
 
   app.put('/api/list/:id', function (req, res) {
     Shoppinglist.findOneAndUpdate({_id: req.params.id}, {
-      $set: {name: req.body.name},
+      //$set: {name: req.body.name},
       $addToSet: {items: req.body.items}
     }, {upsert: true}, function (err) {
       if (err) {
