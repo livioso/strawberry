@@ -25,7 +25,11 @@ angular.module('strawberry')
       ];
 
     $scope.createShoppingItem = function () {
-      ShoppingList.create($scope.formData.text);
+      var item = $scope.formData.text;
+      if (item !== '') {
+        ShoppingList.create(item);
+        $scope.formData = {};
+      }
     };
   }
 ]);
