@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="shoppingListController">
 
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -44,7 +44,7 @@
 		<div class="col-md-3">
 		</div>
 
-			<div class="col-md-6" ng-controller="shoppingListController">
+			<div class="col-md-6">
 				<div class="input-group input-group-lg">
 					<div class="input-group-addon">
 						<i class="fa fa-cart-plus"></i>
@@ -69,7 +69,7 @@
 			</div>
 		</div>
 
-		<div class="col-md-6" ng-controller="shoppingListController">
+    <div class="col-md-6">
 			<ul class="list-group list-group-sm">
 				<li class="list-group-item" ng-repeat="item in shoppinglistItems">
 					<i class="fa fa-check-square-o finish fa-square-o shopping-list-icon"></i>

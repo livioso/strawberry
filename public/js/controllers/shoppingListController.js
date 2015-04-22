@@ -15,9 +15,14 @@ angular.module('strawberry')
 
     $scope.loading = true;
 
-    ShoppingList.get().success(function (data) {
-      $scope.shoppinglistItems = data.items;
-    });
+    $scope.loadData = function() {
+      ShoppingList.get().success(function (data) {
+        console.log('Working on it');
+        $scope.shoppinglistItems = data[0].items;
+      });
+    };
+
+    $scope.loadData();
 
     $scope.shoppinglists = [
         {'name': 'Maria und Livio'},
@@ -27,7 +32,9 @@ angular.module('strawberry')
     $scope.createShoppingItem = function () {
       var item = $scope.formData.text;
       if (item !== '') {
-        ShoppingList.create(item);
+        ShoppingList.create(item).success(function () {
+          $scope.loadData();
+        });
         $scope.formData = {};
       }
     };
