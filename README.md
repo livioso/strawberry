@@ -34,15 +34,20 @@ npm start
 
 ##### Run the tests
 ```
-gulp test
+npm test
+```
+
+##### Run the test in `--auto-watch`
+```
+npm run-script tdd
 ```
 
 ##### Run JSCS and JSHint
 ```
-gulp jscs
+npm run-script jscs
 ```
 ```
-gulp jshint
+npm run-script jshint
 ```
 
 
