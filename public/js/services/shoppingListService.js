@@ -16,7 +16,9 @@ angular.module('shoppingListService', [])
         return $http.put('/api/list/55081de2162072120758fc53', json);
       },
       delete: function (id) {
-        return $http.delete('/api/todos/' + id);
+        if(id !== undefined) {
+          return $http.delete('/api/list/item/' + id);
+        }
       }
     };
   }
