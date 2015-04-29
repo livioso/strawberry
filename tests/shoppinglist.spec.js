@@ -17,6 +17,14 @@ describe('Shoppinglist Service', function() {
     httpBackend.verifyNoOutstandingRequest();
   });
 
+  describe('get shopping list', function() {
+    it('should call the get api backend callback', function() {
+      httpBackend.expectGET('/api/list/55081de2162072120758fc53').respond('');
+      serviceUnderTest.get();
+      httpBackend.flush();
+    });
+  });
+
   describe('create shopping list item', function() {
     it('should call the create api backend callback', function() {
       httpBackend.expectPUT('/api/list/55081de2162072120758fc53').respond('');
