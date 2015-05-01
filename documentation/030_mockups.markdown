@@ -11,7 +11,7 @@
 
 ## Signin page (failure)
 
-![SigninpageFailure](figures/mockups/3_Signinpagefailure.pngf)
+![SigninpageFailure](figures/mockups/3_Signinpagefailure.png)
 
 ## Overview page
 
