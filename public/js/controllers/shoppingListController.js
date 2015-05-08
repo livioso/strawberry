@@ -6,11 +6,6 @@ angular.module('strawberry')
   function ($scope, $http, ShoppingList) {
     'use strict';
 
-    // set the type ahead data
-    $http.get('/category').success(function (data) {
-      $scope.products = data;
-    });
-
     $scope.loadData = function() {
       ShoppingList.get().success(function (data) {
         console.log(data[0].items);
@@ -29,13 +24,23 @@ angular.module('strawberry')
       }
     };
 
+    $scope.updateShoppingItem = function (itemId) {
+      console.log(itemId);
+    };
+
     // setup the data :)
     $scope.formData = {};
     $scope.loading = true;
     $scope.loadData();
+
     $scope.shoppinglists = [
       {'name': 'Maria und Livio'},
       {'name': 'At my parents'}
     ];
+
+    // set the type ahead data
+    $http.get('/category').success(function (data) {
+      $scope.products = data;
+    });
   }
 ]);
