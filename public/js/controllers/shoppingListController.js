@@ -15,6 +15,7 @@ angular.module('strawberry')
 
     $scope.createShoppingItem = function () {
       var item = $scope.formData.text;
+      console.log(item);
       if (item !== '') {
         ShoppingList.create(item).success(function () {
           $scope.loadData();
@@ -38,7 +39,7 @@ angular.module('strawberry')
       {'name': 'At my parents'}
     ];
 
-    // set the type ahead data
+    // set the type ahead data -> Move me to service!
     $http.get('/category').success(function (data) {
       $scope.products = data;
     });
