@@ -67,6 +67,8 @@
     "expect": false,
     "beforeEach": false,
     "afterEach": false,
-    "inject": false
+    "inject": false,
+    "jasmine": false,
+    "spyOn": false
   }
 }

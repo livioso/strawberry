@@ -7,7 +7,7 @@ angular.module('strawberry')
     'use strict';
 
     $scope.loadData = function() {
-      ShoppingList.get().success(function (data) {
+      ShoppingList.get().then(function (data) {
         console.log(data[0].items);
         $scope.shoppinglistItems = data[0].items;
       });
@@ -15,9 +15,8 @@ angular.module('strawberry')
 
     $scope.createShoppingItem = function () {
       var item = $scope.formData.text;
-      console.log(item);
-      if (item !== '') {
-        ShoppingList.create(item).success(function () {
+      if (item !== '' && item !== undefined) {
+        ShoppingList.create(item).then(function () {
           $scope.loadData();
         });
         // read for next entry
