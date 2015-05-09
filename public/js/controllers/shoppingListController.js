@@ -7,9 +7,9 @@ angular.module('strawberry')
     'use strict';
 
     $scope.loadData = function() {
-      ShoppingList.get().then(function (data) {
-        console.log(data[0].items);
-        $scope.shoppinglistItems = data[0].items;
+      ShoppingList.get().then(function (response) {
+        console.log(response.data);
+        $scope.shoppinglistItems = response.data[0].items;
       });
     };
 
