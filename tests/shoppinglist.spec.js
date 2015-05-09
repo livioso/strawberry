@@ -25,6 +25,14 @@ describe('Shoppinglist Service', function() {
     });
   });
 
+  describe('update shopping list item', function() {
+    it('should call the get api backend callback', function() {
+      httpBackend.expectPUT('/api/list/55081de2162072120758fc53/2').respond('');
+      serviceUnderTest.update(2, true);
+      httpBackend.flush();
+    });
+  });
+
   describe('create shopping list item', function() {
     it('should call the create api backend callback', function() {
       httpBackend.expectPUT('/api/list/55081de2162072120758fc53').respond('');
