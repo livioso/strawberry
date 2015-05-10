@@ -45,6 +45,20 @@ module.exports = function (app, passport) {
     });
   });
 
+  app.put('/api/list/:idlist/:iditem', function (req, res) {
+    var toCheck = req.body.check;
+    Shoppinglist.update({
+      _id: new ObjectId(req.params.idlist),
+      'items._id': new ObjectId(req.params.iditem)},
+      {$set: {'items.$.checked': toCheck}}, function (err) {
+        if (err) {
+          return res.sendStatus(500, {error: err});
+        } else {
+          return res.sendStatus(200);
+        }
+      });
+  });
+
   app.post('/api/list', function (req, res) {
     new Shoppinglist(req.body).save(function () {
       return res.send('succesfully saved');

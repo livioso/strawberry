@@ -25,7 +25,7 @@ angular.module('strawberry')
     };
 
     $scope.updateShoppingItem = function (itemId) {
-      console.log(itemId);
+      ShoppingList.update(itemId, true);
     };
 
     // setup the data :)
