@@ -46,7 +46,7 @@ module.exports = function (app, passport) {
   });
 
   app.put('/api/list/:idlist/:iditem', function (req, res) {
-    var toCheck = req.body.check;
+    var toCheck = req.body.checked;
     Shoppinglist.update({
       _id: new ObjectId(req.params.idlist),
       'items._id': new ObjectId(req.params.iditem)},

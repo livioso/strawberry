@@ -60,7 +60,7 @@
 		</div>
 	</div>
 
-  <div class="row shopping-list-margin" ng-controller="shoppingListController">
+  <div class="row shopping-list-margin">
 		<div class="col-md-3">
 			<div class="list-group">
 				<a class="list-group-item" ng-repeat="shoppinglist in shoppinglists">
@@ -70,13 +70,13 @@
 		</div>
 
     <div class="col-md-6">
-			<ul class="list-group list-group-sm">
-				<li class="list-group-item" ng-repeat="item in shoppinglistItems">
-					<i class="fa fa-check-square-o finish fa-square-o shopping-list-icon"></i>
+			<div class="list-group list-group-sm">
+				<a href="" class="list-group-item" ng-repeat="item in shoppinglistItems" ng-if="!item.checked" ng-click="checkShoppingItem(item._id)">
+          <span class="fui-check shopping-list-icon"></span>
           <span>{{item.name}}</span>
-					<label class="label label-primary pull-right">Fruit and Vegetables</label>
-        </li>
-			</ul>
+					<span class="label label-success pull-right">Fruit and Vegetables</span>
+        </a>
+			</div>
 		</div>
 	</div>
 </div>

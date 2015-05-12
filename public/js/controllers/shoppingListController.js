@@ -8,7 +8,6 @@ angular.module('strawberry')
 
     $scope.loadData = function() {
       ShoppingList.get().then(function (response) {
-        console.log(response.data);
         $scope.shoppinglistItems = response.data[0].items;
       });
     };
@@ -24,8 +23,10 @@ angular.module('strawberry')
       }
     };
 
-    $scope.updateShoppingItem = function (itemId) {
-      ShoppingList.update(itemId, true);
+    $scope.checkShoppingItem = function (itemId) {
+      ShoppingList.update(itemId, true).then(function () {
+        $scope.loadData();
+      });
     };
 
     // setup the data :)
