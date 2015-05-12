@@ -12,6 +12,10 @@ angular.module('strawberry')
       });
     };
 
+    $scope.switchList = function(listid) {
+      $scope.currentList = listid;
+    };
+
     $scope.createShoppingItem = function () {
       var item = $scope.formData.text;
       if (item !== '' && item !== undefined) {
@@ -35,9 +39,14 @@ angular.module('strawberry')
     $scope.loadData();
 
     $scope.shoppinglists = [
-      {'name': 'Maria und Livio'},
-      {'name': 'At my parents'}
-    ];
+      {
+        'name': 'Maria und Livio',
+        '_id': 'id1'
+      },
+      {
+        'name': 'At my parents',
+        '_id': 'id2'
+      }];
 
     // set the type ahead data -> Move me to service!
     $http.get('/category').success(function (data) {

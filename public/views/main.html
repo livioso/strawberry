@@ -62,8 +62,8 @@
 
   <div class="row shopping-list-margin">
 		<div class="col-md-3">
-			<div class="list-group">
-				<a class="list-group-item" ng-repeat="shoppinglist in shoppinglists">
+        <div class="list-group">
+          <a class="list-group-item" ng-repeat="shoppinglist in shoppinglists" ng-click="switchList(shoppinglist._id)">
           <i class="fa fa-list-ul shopping-list-icon"></i> {{shoppinglist.name}}
         </a>
 			</div>
