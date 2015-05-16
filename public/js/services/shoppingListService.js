@@ -5,20 +5,20 @@ angular.module('shoppingListService', [])
     'use strict';
     return {
 
-      get: function () {
-        return $http.get('/api/list/55081de2162072120758fc53');
+      get: function (listid) {
+        return $http.get('/api/list/' + listid);
       },
 
-      create: function (shoppinglistdata) {
+      create: function (listid, shoppinglistdata) {
         var json = {'items':
           {'name': shoppinglistdata, 'checked': false}
         };
-        return $http.put('/api/list/55081de2162072120758fc53', json);
+        return $http.put('/api/list/' + listid, json);
       },
 
-      update: function (id, checked) {
+      update: function (listid, id, checked) {
         var json = {'checked': checked};
-        return $http.put('/api/list/55081de2162072120758fc53/' + id, json);
+        return $http.put('/api/list/' + listid + '/' + id, json);
       },
 
       delete: function (id) {

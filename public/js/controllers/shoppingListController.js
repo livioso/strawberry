@@ -6,20 +6,23 @@ angular.module('strawberry')
   function ($scope, $http, ShoppingList) {
     'use strict';
 
-    $scope.loadData = function() {
-      ShoppingList.get().then(function (response) {
-        $scope.shoppinglistItems = response.data[0].items;
-      });
-    };
+    $scope.currentList = '55081de2162072120758fc53';
 
     $scope.switchList = function(listid) {
       $scope.currentList = listid;
+      $scope.loadData();
+    };
+
+    $scope.loadData = function() {
+      ShoppingList.get($scope.currentList).then(function (response) {
+        $scope.shoppinglistItems = response.data[0].items;
+      });
     };
 
     $scope.createShoppingItem = function () {
       var item = $scope.formData.text;
       if (item !== '' && item !== undefined) {
-        ShoppingList.create(item).then(function () {
+        ShoppingList.create($scope.currentList, item).then(function () {
           $scope.loadData();
         });
         // read for next entry
@@ -28,7 +31,7 @@ angular.module('strawberry')
     };
 
     $scope.checkShoppingItem = function (itemId) {
-      ShoppingList.update(itemId, true).then(function () {
+      ShoppingList.update($scope.currentList, itemId, true).then(function () {
         $scope.loadData();
       });
     };
@@ -41,11 +44,11 @@ angular.module('strawberry')
     $scope.shoppinglists = [
       {
         'name': 'Maria und Livio',
-        '_id': 'id1'
+        '_id': '55081de2162072120758fc53'
       },
       {
         'name': 'At my parents',
-        '_id': 'id2'
+        '_id': '5557a65c55753a8035a9c356'
       }];
 
     // set the type ahead data -> Move me to service!

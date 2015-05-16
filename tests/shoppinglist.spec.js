@@ -20,7 +20,7 @@ describe('Shoppinglist Service', function() {
   describe('get shopping list', function() {
     it('should call the get api backend callback', function() {
       httpBackend.expectGET('/api/list/55081de2162072120758fc53').respond('');
-      serviceUnderTest.get();
+      serviceUnderTest.get('55081de2162072120758fc53');
       httpBackend.flush();
     });
   });
@@ -28,7 +28,7 @@ describe('Shoppinglist Service', function() {
   describe('update shopping list item', function() {
     it('should call the get api backend callback', function() {
       httpBackend.expectPUT('/api/list/55081de2162072120758fc53/2').respond('');
-      serviceUnderTest.update(2, true);
+      serviceUnderTest.update('55081de2162072120758fc53', 2, true);
       httpBackend.flush();
     });
   });
@@ -36,7 +36,7 @@ describe('Shoppinglist Service', function() {
   describe('create shopping list item', function() {
     it('should call the create api backend callback', function() {
       httpBackend.expectPUT('/api/list/55081de2162072120758fc53').respond('');
-      serviceUnderTest.create();
+      serviceUnderTest.create('55081de2162072120758fc53');
       httpBackend.flush();
     });
   });
@@ -47,7 +47,7 @@ describe('Shoppinglist Service', function() {
     });
 
     it('should call the delete api backend callback with id', function() {
-      var expectedID = 431234567;
+      var expectedID = 4317;
       httpBackend.expectDELETE('/api/list/item/' + expectedID).respond('');
       serviceUnderTest.delete(expectedID);
       httpBackend.flush();

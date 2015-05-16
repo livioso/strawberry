@@ -37,9 +37,11 @@ describe('Shoppinglist Controller', function() {
   describe('ShopplingListController createShoppingItem(...)', function() {
     it('should create when formData.text is set', function() {
       var item = 'Cheese';
+      var list = 'idlist';
       this.scope.formData.text = item;
+      this.scope.currentList = list;
       this.scope.createShoppingItem();
-      expect(ShoppingListSpy.create).toHaveBeenCalledWith(item);
+      expect(ShoppingListSpy.create).toHaveBeenCalledWith(list, item);
     });
 
     it('should not create when formData.text is empty string', function() {
