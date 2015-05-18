@@ -64,7 +64,8 @@
 		<div class="col-md-3">
         <div class="list-group">
           <a class="list-group-item" ng-repeat="shoppinglist in shoppinglists" ng-click="switchList(shoppinglist._id)">
-          <i class="fa fa-list-ul shopping-list-icon"></i> {{shoppinglist.name}}
+            <i class="fa fa-shopping-cart shopping-list-icon"></i>
+            {{shoppinglist.name}} <span class="fa fa-circle pull-right" ng-if="currentList == shoppinglist._id"></span>
         </a>
 			</div>
 		</div>
@@ -72,7 +73,7 @@
     <div class="col-md-6">
 			<div class="list-group list-group-sm">
 				<a href="" class="list-group-item" ng-repeat="item in shoppinglistItems" ng-if="!item.checked" ng-click="checkShoppingItem(item._id)">
-          <span class="fui-check shopping-list-icon"></span>
+          <span class="fa fa-circle-o shopping-list-icon"></span>
           <span>{{item.name}}</span>
 					<span class="label label-success pull-right">Fruit and Vegetables</span>
         </a>
