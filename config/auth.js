@@ -1,4 +1,6 @@
 var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+
 module.exports = function (passport) {
   'use strict';
 
@@ -18,4 +20,25 @@ module.exports = function (passport) {
   passport.deserializeUser(function (user, done) {
     done(null, user);
   });
+
+  passport.use(new FacebookStrategy({
+      clientID: process.env.FBAppID,
+      clientSecret: process.env.FBAppSecret,
+      callbackURL:
+        'https://strawberry-livioso.herokuapp.com/' +
+        'auth/facebook/callback'
+    },
+
+    function(accessToken, refreshToken, profile, done) {
+
+      /* TBD: Add user to collection User.
+      User.findOrCreate(..., function(err, user) {
+        if (err) { return done(err); }
+          done(null, user);
+      });
+      */
+
+      done(null, profile);
+    }
+  ));
 };
