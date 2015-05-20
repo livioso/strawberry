@@ -17,55 +17,56 @@ var auth = function (req, res, next) {
 module.exports = function (app, passport) {
   'use strict';
 
-  app.put('/api/list/:id', function (req, res) {
-    Shoppinglist.findOneAndUpdate({_id: req.params.id}, {
-      //$set: {name: req.body.name},
-      $addToSet: {items: req.body.items}
-    }, {upsert: true}, function (err) {
-      if (err) {
-        return res.sendStatus(500, {error: err});
-      } else {
-        return res.send('succesfully saved');
-      }
-    });
-  });
-
-  app.get('/api/list/:idlist/:iditem', function (req, res) {
-    Shoppinglist.aggregate([
-      {$match: {_id: new ObjectId(req.params.idlist)}},
-      {$unwind: '$items'},
-      {$match: {'items._id': new ObjectId(req.params.iditem)}},
-      {$project: {_id: false, item: '$items'}}
-    ], function (err, item) {
-      if (err) {
-        return res.sendStatus(500, {error: err});
-      } else {
-        return res.json(item);
-      }
-    });
-  });
-
-  app.put('/api/list/:idlist/:iditem', function (req, res) {
-    var toCheck = req.body.checked;
-    Shoppinglist.update({
-      _id: new ObjectId(req.params.idlist),
-      'items._id': new ObjectId(req.params.iditem)},
-      {$set: {'items.$.checked': toCheck}}, function (err) {
+  // -- /api/list/:idlist/:iditem --
+  app.route('/api/list/:idlist/:iditem')
+    .get(function (req, res) {
+      Shoppinglist.aggregate([
+        {$match: {_id: new ObjectId(req.params.idlist)}},
+        {$unwind: '$items'},
+        {$match: {'items._id': new ObjectId(req.params.iditem)}},
+        {$project: {_id: false, item: '$items'}}
+      ], function (err, item) {
+        if (err) {
+          return res.sendStatus(500, {error: err});
+        } else {
+          return res.json(item);
+        }
+      });
+    })
+    .put(function (req, res) {
+      var toCheck = req.body.checked;
+      Shoppinglist.update({
+        _id: new ObjectId(req.params.idlist),
+        'items._id': new ObjectId(req.params.iditem)},
+        {$set: {'items.$.checked': toCheck}}, function (err) {
         if (err) {
           return res.sendStatus(500, {error: err});
         } else {
           return res.sendStatus(200);
         }
       });
-  });
-
-  app.post('/api/list', function (req, res) {
-    new Shoppinglist(req.body).save(function () {
-      return res.send('succesfully saved');
     });
-  });
 
-  app.get('/api/list/:idlist', function (req, res) {
+  // -- /api/list --
+  app.route('/api/list')
+    .post(function (req, res) {
+      new Shoppinglist(req.body).save(function () {
+        return res.send('succesfully saved');
+      });
+    })
+    .get(function (req, res) {
+      Shoppinglist.find(function (err, lists) {
+        if (err) {
+          return res.sendStatus(500, {error: err});
+        } else {
+          return res.json(lists);
+        }
+      });
+    });
+
+  // -- /api/list/:idlist --
+  app.route('/api/list/:idlist')
+  .get(function (req, res) {
     Shoppinglist.aggregate([
       {$match: {_id: new ObjectId(req.params.idlist)}}
     ], function (err, lists) {
@@ -75,14 +76,15 @@ module.exports = function (app, passport) {
         return res.json(lists);
       }
     });
-  });
-
-  app.get('/api/list', function (req, res) {
-    Shoppinglist.find(function (err, lists) {
+  })
+  .put(function (req, res) {
+    Shoppinglist.findOneAndUpdate({_id: req.params.id}, {
+      $addToSet: {items: req.body.items}
+    }, {upsert: true}, function (err) {
       if (err) {
         return res.sendStatus(500, {error: err});
       } else {
-        return res.json(lists);
+        return res.send('succesfully saved');
       }
     });
   });
