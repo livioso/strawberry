@@ -36,10 +36,15 @@ angular.module('strawberry')
       });
     };
 
+    $scope.createShoppingList = function () {
+      //var list = $scope.newListModel;
+    };
+
     // setup the data :)
     $scope.formData = {};
     $scope.loading = true;
     $scope.loadData();
+    $scope.newListModel = {};
 
     $scope.shoppinglists = [
       {
