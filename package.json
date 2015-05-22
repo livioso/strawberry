@@ -24,6 +24,7 @@
     "jshint-stylish": "^1.0.1",
     "method-override": "~2.3.2",
     "mongoose": "~3.8.25",
+    "mongoose-findorcreate": "^0.1.2",
     "morgan": "~1.5.2",
     "passport": "^0.2.1",
     "passport-facebook": "^2.0.0",
