@@ -5,7 +5,7 @@
 
 **Strawberry** is a collaborative shopping list. Strawberry aims to simplify doing groceries in households with more than one person. No more problems because you forgot that piece of paper called grocery list at home or you did not see the message from your girlfriend telling you to bring that one important item.
 
-![StrawberryBanner](figures/StrawberryBanner.png) \pagebreak
+## What are the features?
 
 **Strawberry** in this early version will support the following features:
 
@@ -75,8 +75,6 @@ Use Case				| Add user to existing shopping list
 
 ### Usecase: Remove item to shopping lists
 see *Usecase: Add item to shopping lists*. Same as this but instead of adding item will be removed.
-
-\pagebreak
 
 ### Usecase: Create new shopping lists
 
