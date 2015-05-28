@@ -9,6 +9,10 @@ angular.module('shoppingListService', [])
         return $http.get('/api/list/' + listid);
       },
 
+      getLists: function () {
+        return $http.get('/api/list/');
+      },
+
       create: function (listid, shoppinglistdata) {
         var json = {'items':
           {'name': shoppinglistdata, 'checked': false}

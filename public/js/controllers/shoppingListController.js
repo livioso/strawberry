@@ -6,7 +6,13 @@ angular.module('strawberry')
   function ($scope, $http, ShoppingList) {
     'use strict';
 
-    $scope.currentList = '55081de2162072120758fc53';
+    $scope.currentList = '';
+
+    $scope.loadShoppinglists = function() {
+      ShoppingList.getLists().then(function (response) {
+        $scope.shoppinglists = response.data;
+      });
+    };
 
     $scope.switchList = function(listid) {
       $scope.currentList = listid;
@@ -21,7 +27,8 @@ angular.module('strawberry')
 
     $scope.createShoppingItem = function () {
       var item = $scope.formData.text;
-      if (item !== '' && item !== undefined) {
+      if (item !== '' && item !== undefined &&
+          $scope.currentList !== undefined && $scope.currentList !== '') {
         ShoppingList.create($scope.currentList, item).then(function () {
           $scope.loadData();
         });
@@ -43,18 +50,9 @@ angular.module('strawberry')
     // setup the data :)
     $scope.formData = {};
     $scope.loading = true;
+    $scope.loadShoppinglists();
     $scope.loadData();
     $scope.newListModel = {};
-
-    $scope.shoppinglists = [
-      {
-        'name': 'Maria und Livio',
-        '_id': '55081de2162072120758fc53'
-      },
-      {
-        'name': 'At my parents',
-        '_id': '5557a65c55753a8035a9c356'
-      }];
 
     // set the type ahead data -> Move me to service!
     $http.get('/category').success(function (data) {
