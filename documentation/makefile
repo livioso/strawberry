@@ -6,6 +6,7 @@ FIGUREDIR="figures"
 
 # Individual Assets
 TEXPREAMBLE="options.sty"
+TEXTEMPLATE="template.tex"
 BIBBIBLIOGRAPHY="references.bib"
 YAMLMETADATA="metadata.yaml"
 
@@ -29,13 +30,17 @@ pdf: prepare
 	@echo "Creating pdf output ..."
 	@pandoc \
 		--latex-engine=xelatex \
+		--template=$(ASSETSDIR)/$(TEXTEMPLATE) \
 		--include-in-header=$(ASSETSDIR)/$(TEXPREAMBLE) \
 		--bibliography=$(ASSETSDIR)/$(BIBBIBLIOGRAPHY) \
 		--variable documentclass=scrbook \
 		--variable fontsize=13pt \
+		--variable mainfont='Helvetica Neue' \
+		--variable sansfont='Helvetica Neue' \
 		--variable classoption=openright \
 		--variable papersize=a4paper,oneside,headsepline \
 		--variable bibliography=totocnumbered \
+		--variable custom-title-image=figures/StrawberryBanner \
 		--highlight-style=tango \
 		--table-of-contents \
 		--toc-depth=4 \
