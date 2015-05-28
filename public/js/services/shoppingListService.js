@@ -20,6 +20,11 @@ angular.module('shoppingListService', [])
         return $http.post('/api/list/' + listid, json);
       },
 
+      createLists: function (name) {
+        var json = {'name': name};
+        return $http.put('/api/list/', json);
+      },
+
       update: function (listid, id, checked) {
         var json = {'checked': checked};
         return $http.put('/api/list/' + listid + '/' + id, json);

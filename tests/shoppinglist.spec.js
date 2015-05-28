@@ -35,7 +35,7 @@ describe('Shoppinglist Service', function() {
 
   describe('create shopping list item', function() {
     it('should call the create api backend callback', function() {
-      httpBackend.expectPUT('/api/list/55081de2162072120758fc53').respond('');
+      httpBackend.expectPOST('/api/list/55081de2162072120758fc53').respond('');
       serviceUnderTest.create('55081de2162072120758fc53');
       httpBackend.flush();
     });

@@ -49,7 +49,7 @@ module.exports = function (app, passport) {
 
   // -- /api/list --
   app.route('/api/list')
-    .post(function (req, res) {
+    .put(function (req, res) {
       new Shoppinglist(req.body).save(function () {
         return res.send('succesfully saved');
       });

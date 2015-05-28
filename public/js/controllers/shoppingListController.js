@@ -44,7 +44,10 @@ angular.module('strawberry')
     };
 
     $scope.createShoppingList = function () {
-      //var list = $scope.newListModel;
+      var list = $scope.newListModel.text;
+      ShoppingList.createLists(list).then(function () {
+        $scope.loadShoppinglists();
+      });
     };
 
     // setup the data :)
