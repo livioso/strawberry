@@ -77,7 +77,7 @@ module.exports = function (app, passport) {
       }
     });
   })
-  .put(function (req, res) {
+  .post(function (req, res) {
     Shoppinglist.findOneAndUpdate({_id: req.params.idlist}, {
       $addToSet: {items: req.body.items}
     }, {upsert: true}, function (err) {

@@ -17,7 +17,7 @@ angular.module('shoppingListService', [])
         var json = {'items':
           {'name': shoppinglistdata, 'checked': false}
         };
-        return $http.put('/api/list/' + listid, json);
+        return $http.post('/api/list/' + listid, json);
       },
 
       update: function (listid, id, checked) {
