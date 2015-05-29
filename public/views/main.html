@@ -17,14 +17,8 @@
 
 			<!-- right navbar -->
 			<div class="nav navbar-nav navbar-right">
-				<a class="btn btn-primary btn-sm navbar-btn" title="Change list settings." data-toggle="modal" data-target="#myModal">
-					<i class="fa fa-gear"></i>
-				</a>
-				<a class="btn btn-primary btn-sm navbar-btn" title="Log out." href="#/" ng-click="logout()">
-					<i class="fa fa-sign-out"></i>
-				</a>
-				<a class="btn btn-danger btn-sm navbar-btn" title="Check latest changes.">
-					<i class="fa fa-bell"></i>
+				<a class="btn btn-danger btn-sm navbar-btn" title="Log out." href="#/" ng-click="logout()">
+          <strong>Log out</strong>
 				</a>
 			</div>
 		</div>
@@ -64,11 +58,11 @@
 		<div class="col-md-3">
       <div class="list-group">
         <a class="list-group-item" ng-repeat="shoppinglist in shoppinglists" ng-click="switchList(shoppinglist._id)">
-          <i class="fa fa-shopping-cart shopping-list-icon"></i>
-          {{shoppinglist.name}} <span class="fa fa-circle pull-right" ng-if="currentList == shoppinglist._id"></span>
+          <i class="fa shopping-list-icon" ng-class="currentList == shoppinglist._id ? 'fa-chevron-circle-right minty' : 'fa-shopping-cart'"></i>
+          {{shoppinglist.name}}
         </a>
         <a class="list-group-item" data-toggle="modal" data-target="#modalAddList">
-          <span class="fa fa-plus shopping-list-icon center"></span> <strong>add list</strong>
+          <span class="fa fa-cart-plus shopping-list-icon"></span> <strong>Create new list</strong>
         </a>
 			</div>
 		</div>
