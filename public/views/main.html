@@ -17,7 +17,7 @@
 
 			<!-- right navbar -->
 			<div class="nav navbar-nav navbar-right">
-				<a class="btn btn-danger btn-sm navbar-btn" title="Log out." href="#/" ng-click="logout()">
+				<a class="btn btn-danger btn-sm navbar-btn" title="Log out" href="#/" ng-click="logout()">
           <strong>Log out</strong>
 				</a>
 			</div>
@@ -58,11 +58,12 @@
 		<div class="col-md-3">
       <div class="list-group">
         <a class="list-group-item" ng-repeat="shoppinglist in shoppinglists" ng-click="switchList(shoppinglist._id)">
-          <i class="fa shopping-list-icon" ng-class="currentList == shoppinglist._id ? 'fa-chevron-circle-right minty' : 'fa-shopping-cart'"></i>
+          <i class="fa shopping-list-icon" ng-class="currentList == shoppinglist._id ? 'fa-chevron-circle-right' : 'fa-shopping-cart'"></i>
           {{shoppinglist.name}}
+          <i class="fa fa-minus-square pull-right minty"></i>
         </a>
         <a class="list-group-item" data-toggle="modal" data-target="#modalAddList">
-          <span class="fa fa-cart-plus shopping-list-icon"></span> <strong>Create new list</strong>
+          <span class="fa fa-cart-plus shopping-list-icon"></span> create
         </a>
 			</div>
 		</div>
@@ -72,15 +73,20 @@
 				<a href="" class="list-group-item" ng-repeat="item in shoppinglistItems" ng-if="!item.checked" ng-click="checkShoppingItem(item._id)">
           <span class="fa fa-circle-o shopping-list-icon"></span>
           <span>{{item.name}}</span>
-				<span class="label label-success pull-right">Fruit and Vegetables</span>
         </a>
 			</div>
 		</div>
-    <div class="col-md-1">
-      <div class="list-group list-group">
-        <i class="fa fa-user list-group-item"></i>
-        <i class="fa fa-user list-group-item"></i>
-        <a><i class="fa fa-cog list-group-item"></i></a>
+    <div class="col-md-2">
+      <div class="list-group-xs">
+        <a class="list-group-item">
+          <i class="fa fa-user shopping-list-icon"></i> Livio
+          <i class="fa fa-minus-square pull-right minty"></i>
+        </a>
+        <a class="list-group-item">
+          <i class="fa fa-user shopping-list-icon"></i> Maria
+          <i class="fa fa-minus-square pull-right minty"></i>
+        <a class="list-group-item"><i class="fa fa-user-plus shopping-list-icon"></i> share
+        </a>
       </div>
     </div>
 	</div>
