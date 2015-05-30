@@ -60,7 +60,7 @@
         <a class="list-group-item" ng-repeat="shoppinglist in shoppinglists" ng-click="switchList(shoppinglist._id)">
           <i class="fa shopping-list-icon" ng-class="currentList == shoppinglist._id ? 'fa-chevron-circle-right' : 'fa-shopping-cart'"></i>
           {{shoppinglist.name}}
-          <i class="fa fa-minus-square pull-right minty"></i>
+          <i class="fa fa-minus-square pull-right minty" ng-click="deleteList(shoppinglist._id)"></i>
         </a>
         <a class="list-group-item" data-toggle="modal" data-target="#modalAddList">
           <span class="fa fa-cart-plus shopping-list-icon"></span> create

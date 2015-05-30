@@ -87,6 +87,16 @@ module.exports = function (app, passport) {
         return res.send('succesfully saved');
       }
     });
+  })
+  .delete(function (req, res) {
+    Shoppinglist.remove({
+      _id: req.params.idlist}, function (err) {
+      if (err) {
+        return res.sendStatus(500, {error: err});
+      } else {
+        return res.sendStatus(200);
+      }
+    });
   });
 
   app.get('/loggedin', function (req, res) {

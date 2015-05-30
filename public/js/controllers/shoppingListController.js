@@ -19,6 +19,12 @@ angular.module('strawberry')
       $scope.loadData();
     };
 
+    $scope.deleteList = function(listid) {
+      ShoppingList.delete(listid).then(function () {
+        $scope.loadShoppinglists();
+      });
+    };
+
     $scope.loadData = function() {
       ShoppingList.get($scope.currentList).then(function (response) {
         $scope.shoppinglistItems = response.data[0].items;

@@ -13,6 +13,10 @@ angular.module('shoppingListService', [])
         return $http.get('/api/list/');
       },
 
+      delete: function (listid) {
+        return $http.delete('/api/list/' + listid);
+      },
+
       create: function (listid, shoppinglistdata) {
         var json = {'items':
           {'name': shoppinglistdata, 'checked': false}
@@ -28,12 +32,6 @@ angular.module('shoppingListService', [])
       update: function (listid, id, checked) {
         var json = {'checked': checked};
         return $http.put('/api/list/' + listid + '/' + id, json);
-      },
-
-      delete: function (id) {
-        if (id !== undefined) {
-          return $http.delete('/api/list/item/' + id);
-        }
       }
     };
   }
