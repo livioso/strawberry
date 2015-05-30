@@ -41,14 +41,10 @@ describe('Shoppinglist Service', function() {
     });
   });
 
-  describe('delete shopping list item', function() {
-    it('should not call delete api backend callback with no id', function() {
-      serviceUnderTest.delete();
-    });
-
+  describe('delete shopping list', function() {
     it('should call the delete api backend callback with id', function() {
       var expectedID = 4317;
-      httpBackend.expectDELETE('/api/list/item/' + expectedID).respond('');
+      httpBackend.expectDELETE('/api/list/' + expectedID).respond('');
       serviceUnderTest.delete(expectedID);
       httpBackend.flush();
     });
