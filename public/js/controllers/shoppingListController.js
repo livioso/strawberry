@@ -67,5 +67,12 @@ angular.module('strawberry')
     $http.get('/category').success(function (data) {
       $scope.products = data;
     });
+
+    // set the user object
+    $http.get('/loggedin').success(function (user) {
+      $scope.user = user;
+      $scope.user.profileImage =
+        'https://graph.facebook.com/v2.3/' + user.profileId + '/picture';
+    });
   }
 ]);

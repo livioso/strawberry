@@ -17,19 +17,22 @@
 
 			<!-- right navbar -->
 			<div class="nav navbar-nav navbar-right">
-				<a class="btn btn-danger btn-sm navbar-btn" title="Log out" href="#/" ng-click="logout()">
-          <strong>Log out</strong>
-				</a>
+        <li class="navbar-text">
+          <img class="img-circle" ng-src="{{user.profileImage}}">
+          {{user.givenName}} {{user.familyName}}</li>
+        <li>
+				  <a class="nav navbar-link" title="Log out" href="#/" ng-click="logout()">Log out</a>
+        </li>
 			</div>
 		</div>
 	</nav>
 
 	<div class="row welcome">
 		<div class="center-block">
-			<div class="text-center" ng-controller="WelcomeMessageController">
-				<span><img src="img/todolist.svg" alt="Todo List"/></span>
-				<h4> {{welcomeMessage + ', ' + welcomeUser + '.'}}</h4>
-				<h6 class="minty">{{openItemsComment}}</h6>
+			<div class="text-center">
+				<span><img src="img/todolist.svg" alt="Strawberry"/></span>
+        <h4> Hello, {{user.givenName}}.</h4>
+				<h6 class="minty">We have 2 items in our list.</h6>
 			</div>
 		</div>
 	</div>

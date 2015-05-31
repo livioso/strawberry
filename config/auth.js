@@ -8,9 +8,21 @@ module.exports = function (passport) {
   passport.use(new LocalStrategy(function (username, password, done) {
     if (username === process.env.DEVUSERNAME &&
         password === process.env.DEVUSERPW) {
-      return done(null, {name: 'DEVUSER'});
-    } else {
-      return done(null, false, {message: 'Incorrect username.'});
+      // todo: livio 31.05.2015: Remove me ;-)
+      // just for demonstration purposes we already
+      // have Alex in our Database (incl. his Facebook
+      // profile ID).
+      User.findOrCreate({
+        givenName: 'Alexandre',
+        familyName: 'De Spindler',
+        profileId: '594587729'
+      }, function(err, user) {
+        if (err) {
+          return done(err);
+        } else {
+          done(null, user);
+        }
+      });
     }
   }));
 
@@ -32,10 +44,11 @@ module.exports = function (passport) {
     },
 
     function(accessToken, refreshToken, profile, done) {
-
+      console.log(profile);
       User.findOrCreate({
         givenName: profile.name.givenName,
-        facebookId: profile.id
+        familyName: profile.name.familyName,
+        profileId: profile.id
       }, function(err, user) {
         if (err) {
           return done(err);
@@ -43,14 +56,6 @@ module.exports = function (passport) {
           done(null, user);
         }
       });
-
-      /* TBD: Add user to collection User.
-      User.findOrCreate(..., function(err, user) {
-        if (err) { return done(err); }
-          done(null, user);
-      });
-      */
-
     }
   ));
 };

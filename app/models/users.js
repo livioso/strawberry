@@ -3,7 +3,8 @@ var findOrCreate = require('mongoose-findorcreate');
 
 var userSchema = new mongoose.Schema({
   givenName: String,
-  facebookId: String,
+  familyName: String,
+  profileId: String,
 });
 
 userSchema.plugin(findOrCreate);
