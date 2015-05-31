@@ -1,4 +1,5 @@
 var Shoppinglist = require('./models/shoppinglists');
+var User = require('./models/users');
 var Presets = require('./data/presets');
 var ObjectId = require('mongoose').Types.ObjectId;
 
@@ -101,6 +102,17 @@ module.exports = function (app, passport) {
         return res.sendStatus(500, {error: err});
       } else {
         return res.sendStatus(200);
+      }
+    });
+  });
+
+  app.route('/api/user')
+  .get(function (req, res) {
+    User.find(function (err, users) {
+      if (err) {
+        return res.sendStatus(500, {error: err});
+      } else {
+        return res.json(users);
       }
     });
   });

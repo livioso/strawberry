@@ -79,18 +79,8 @@
         </a>
 			</div>
 		</div>
-    <div class="col-md-2">
-      <div class="list-group-xs">
-        <a class="list-group-item">
-          <i class="fa fa-user shopping-list-icon"></i> Livio
-          <i class="fa fa-minus-square pull-right minty"></i>
-        </a>
-        <a class="list-group-item">
-          <i class="fa fa-user shopping-list-icon"></i> Maria
-          <i class="fa fa-minus-square pull-right minty"></i>
-        <a class="list-group-item"><i class="fa fa-user-plus shopping-list-icon"></i> share
-        </a>
-      </div>
+    <div class="col-md-1">
+      <img class="img-circle" ng-repeat="member in users" ng-src="{{member.profileImage}}">
     </div>
 	</div>
   <!-- Modal -->

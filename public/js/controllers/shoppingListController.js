@@ -74,5 +74,13 @@ angular.module('strawberry')
       $scope.user.profileImage =
         'https://graph.facebook.com/v2.3/' + user.profileId + '/picture';
     });
+
+    $http.get('api/user').success(function (users) {
+      users.map(function (user) {
+        user.profileImage =
+        'https://graph.facebook.com/v2.3/' + user.profileId + '/picture';
+      });
+      $scope.users = users;
+    });
   }
 ]);
