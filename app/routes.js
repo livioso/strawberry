@@ -50,7 +50,13 @@ module.exports = function (app, passport) {
   // -- /api/list --
   app.route('/api/list')
     .put(function (req, res) {
-      new Shoppinglist(req.body).save(function () {
+      var list = req.body;
+      var creator = {member: req.user.profileId};
+      var members = [];
+      members.push(creator);
+      list.members = members;
+      console.log(list);
+      new Shoppinglist(list).save(function () {
         return res.send('succesfully saved');
       });
     })
