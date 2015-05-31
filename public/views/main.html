@@ -4,6 +4,7 @@
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#/">
+          <img class="img-circle navbar-picture" src="img/Strawberry.png">
 					<span>Strawberry</span>
 				</a>
 			</div>
@@ -18,8 +19,9 @@
 			<!-- right navbar -->
 			<div class="nav navbar-nav navbar-right">
         <li class="navbar-text">
-          <img class="img-circle" ng-src="{{user.profileImage}}">
-          {{user.givenName}} {{user.familyName}}</li>
+          <img class="img-circle navbar-picture" ng-src="{{user.profileImage}}">
+          {{user.givenName}} {{user.familyName}}
+        </li>
         <li>
 				  <a class="nav navbar-link" title="Log out" href="#/" ng-click="logout()">Log out</a>
         </li>
@@ -79,8 +81,12 @@
         </a>
 			</div>
 		</div>
-    <div class="col-md-1">
-      <img class="img-circle" ng-repeat="member in users" ng-src="{{member.profileImage}}">
+    <div class="col-md-3">
+      <div ng-repeat="member in users">
+        <img class="img-circle profile-picture" ng-src="{{member.profileImage}}">
+        {{member.givenName}}
+      </div>
+      <i class="fa fa-user-plus" ng-click="alert('share')"></i>
     </div>
 	</div>
   <!-- Modal -->
