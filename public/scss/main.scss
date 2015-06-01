@@ -1,3 +1,6 @@
+$minty: #1abc9c;
+$white: #fff;
+
 .form-generic {
 	width: 400px;
 }
@@ -28,7 +31,7 @@
 }
 
 .minty {
-	color: #1abc9c;
+	color: $minty;
 }
 
 .shopping-list-margin {
@@ -37,4 +40,13 @@
 
 .shopping-list-icon {
 	padding-right: 12px;
+}
+
+.add-button {
+  height: 42px;
+  width: 42px;
+  margin: 4px;
+  text-align: center;
+  line-height: 1.42;
+  border-radius: 50px;
 }

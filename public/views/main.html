@@ -67,10 +67,9 @@
           {{shoppinglist.name}}
           <i class="fa fa-minus-square pull-right minty" ng-click="deleteList(shoppinglist._id)"></i>
         </a>
-        <a class="list-group-item" data-toggle="modal" data-target="#modalAddList">
-          <span class="fa fa-cart-plus shopping-list-icon"></span> create
-        </a>
 			</div>
+      <a class="btn btn-default add-button" data-toggle="modal" data-target="#modalAddList"><i class="fa fa-cart-plus"></i></a>
+      <a class="btn btn-default add-button" href="#"><i class="fa fa-user-plus"></i></a>
 		</div>
 
     <div class="col-md-6">
@@ -86,7 +85,6 @@
         <img class="img-circle profile-picture" ng-src="{{member.profileImage}}">
         {{member.givenName}}
       </div>
-      <i class="fa fa-user-plus" ng-click="alert('share')"></i>
     </div>
 	</div>
   <!-- Modal -->
