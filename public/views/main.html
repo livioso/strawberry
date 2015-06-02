@@ -34,7 +34,7 @@
 			<div class="text-center">
 				<span><img src="img/todolist.svg" alt="Strawberry"/></span>
         <h4> Hello, {{user.givenName}}.</h4>
-				<h6 class="minty">We have 2 items in our list.</h6>
+        <h6 class="minty">We have __ in our list.</h6>
 			</div>
 		</div>
 	</div>
@@ -69,7 +69,7 @@
         </a>
 			</div>
       <a class="btn btn-default add-button" data-toggle="modal" data-target="#modalAddList"><i class="fa fa-cart-plus"></i></a>
-      <a class="btn btn-default add-button" href="#"><i class="fa fa-user-plus"></i></a>
+      <a class="btn btn-default add-button" data-toggle="modal" data-target="#addUserModal"><i class="fa fa-user-plus"></i></a>
 		</div>
 
     <div class="col-md-6">
@@ -87,7 +87,8 @@
       </div>
     </div>
 	</div>
-  <!-- Modal -->
+
+  <!-- Add List -->
   <div class="modal fade" id="modalAddList" tabindex="-1" role="dialog" aria-labelledby="modalAddListLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -107,17 +108,18 @@
   </div>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Add User -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Settings</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addUserModalLabel"><i class="fa fa-user-plus"></i> add members to list</h4>
       </div>
       <div class="modal-body">
-        ...
+        <input type="text" class="form-control" placeholder="Search for other users..." typeahead="user for user in ['Jaol', 'Salo'] | filter:$viewValue  | limitTo:6"
+>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
