@@ -52,7 +52,7 @@ module.exports = function (app, passport) {
   app.route('/api/list')
     .put(function (req, res) {
       var list = req.body;
-      var creator = {member: req.user.profileId};
+      var creator = {profileId: req.user.profileId};
       var members = [];
       members.push(creator);
       list.members = members;

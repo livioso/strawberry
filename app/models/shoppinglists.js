@@ -12,7 +12,7 @@ var shoppinglistSchema = new mongoose.Schema({
     name: String
   }],
   members: [{
-    member: String
+    profileId: String
   }]
 });
 
