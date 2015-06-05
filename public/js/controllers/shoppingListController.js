@@ -32,18 +32,21 @@ angular.module('strawberry')
           // the profileId is unique therefore
           // we will find exactly one match.
           var match = $scope.users;
-          match.filter(function (user) {
+          match = match.filter(function (user) {
             // we only want the matching one
             return user.profileId === member.profileId;
           });
-
           // fill in the details we are interest in
           member.fullName = match[0].fullName;
+          member.givenName = match[0].givenName;
+          member.familyName = match[0].familyName;
           member.profileImage = match[0].profileImage;
         });
 
+        // tbd: refactor this -> ugly, ugly :)
         $scope.shoppinglistMembers = members;
         $scope.shoppinglistItems = response.data[0].items;
+        $scope.shoppinglistName = response.data[0].name;
       });
     };
 
@@ -72,9 +75,17 @@ angular.module('strawberry')
       });
     };
 
+    $scope.addMember = function () {
+      if ($scope.formDataAddMember !== null &&
+          $scope.formDataAddMember !== {}) {
+        $scope.shoppinglistMembers.push($scope.formDataAddMember);
+        $scope.formDataMember = {};
+      }
+    };
+
     // setup the data :)
     $scope.formData = {};
-    $scope.addUserData = {};
+    $scope.formDataMember = {};
     $scope.loading = true;
     $scope.loadShoppinglists();
     $scope.loadData();
