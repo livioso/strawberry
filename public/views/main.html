@@ -118,8 +118,7 @@
         <h4 class="modal-title" id="addUserModalLabel"><i class="fa fa-user-plus"></i> add members to list</h4>
       </div>
       <div class="modal-body">
-        <input type="text" class="form-control" placeholder="Search for other users..." typeahead="user for user in ['Jaol', 'Salo'] | filter:$viewValue  | limitTo:6"
->
+        <input type="text" class="form-control" typeahead-editable="false" placeholder="Search for other users..." ng-model="formData.text" typeahead="user.name for user in [{name:'Jaol'}, {name:'Salo'}] | filter:$viewValue | limitTo:6">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
