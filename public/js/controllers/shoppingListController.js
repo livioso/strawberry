@@ -27,6 +27,22 @@ angular.module('strawberry')
 
     $scope.loadData = function() {
       ShoppingList.get($scope.currentList).then(function (response) {
+        var members = response.data[0].members;
+        members.map(function (member) {
+          // the profileId is unique therefore
+          // we will find exactly one match.
+          var match = $scope.users;
+          match.filter(function (user) {
+            // we only want the matching one
+            return user.profileId === member.profileId;
+          });
+
+          // fill in the details we are interest in
+          member.fullName = match[0].fullName;
+          member.profileImage = match[0].profileImage;
+        });
+
+        $scope.shoppinglistMembers = members;
         $scope.shoppinglistItems = response.data[0].items;
       });
     };
@@ -58,6 +74,7 @@ angular.module('strawberry')
 
     // setup the data :)
     $scope.formData = {};
+    $scope.addUserData = {};
     $scope.loading = true;
     $scope.loadShoppinglists();
     $scope.loadData();
@@ -78,7 +95,8 @@ angular.module('strawberry')
     $http.get('api/user').success(function (users) {
       users.map(function (user) {
         user.profileImage =
-        'https://graph.facebook.com/v2.3/' + user.profileId + '/picture';
+          'https://graph.facebook.com/v2.3/' + user.profileId + '/picture';
+        user.fullName = user.givenName + ' ' + user.familyName;
       });
       $scope.users = users;
     });
