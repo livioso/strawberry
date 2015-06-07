@@ -1,97 +1,98 @@
 <div class="container" ng-controller="shoppingListController">
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#/">
-          <span> <i class="fa fa-shopping-cart"></i> Strawberry</span>
-				</a>
-			</div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/">
+          <span> <img class="fa fa-shopping-cart"></img> Strawberry</span>
+        </a>
+      </div>
 
-			<!-- left navbar -->
-			<ul class="nav navbar-nav">
-				<li>
+      <!-- left navbar -->
+      <ul class="nav navbar-nav">
+        <li>
           <a class="nav navbar-link" href="https://github.com/livioso/Strawberry">About</a>
-				</li>
-			</ul>
+        </li>
+      </ul>
 
-		  <!-- right navbar -->
+      <!-- right navbar -->
       <div class="nav navbar-nav navbar-right">
         <li class="navbar-text">
-          <img class="img-circle navbar-picture" ng-src="{{user.profileImage}}">
-          <small>{{user.givenName}} {{user.familyName}}</small>
+          <small>
+            Logged in as {{user.givenName}} {{user.familyName}}
+            <img class="img-circle navbar-picture" ng-src="{{user.profileImage}}">
+          </small>
         </li>
         <li>
-          <a class="nav navbar-link" title="Log out" href="#/" ng-click="logout()"><i class="fa fa-sign-out"></i> Log out</a>
+          <a class="nav navbar-link" title="Log out" href="#/" ng-click="logout()">Log out <i class="fa fa-chevron-circle-right"></i></a>
         </li>
-			</div>
-		</div>
-	</nav>
+      </div>
+    </div>
+  </nav>
 
-	<div class="row welcome">
-		<div class="center-block">
-			<div class="text-center">
-				<span><img src="img/todolist.svg" alt="Strawberry"/></span>
+  <div class="row welcome">
+    <div class="center-block">
+      <div class="text-center">
+        <span><img src="img/todolist.svg" alt="Strawberry"/></span>
         <h4> Hello, {{user.givenName}}.</h4>
         <h6 class="minty">We have __ in our list.</h6>
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 
-	<div class="row">
-		<div class="col-md-3">
-		</div>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
 
-			<div class="col-md-6">
-				<div class="input-group input-group-lg">
-				  <div class="input-group-addon">
-						<i class="fa fa-cart-plus"></i>
-					</div>
-					<input type="text" ng-model="formData.text" typeahead="product for product in products | filter:$viewValue | limitTo:6"
-						class="form-control" placeholder="What would you like to buy?">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" ng-click="createShoppingItem()">
-							<i class="fa fa-plus"></i>
-						</button>
-					</span>
-				</div>
-		</div>
-	</div>
+      <div class="col-md-6">
+        <div class="input-group input-group-lg">
+          <div class="input-group-addon">
+            <i class="fa fa-cart-plus"></i>
+          </div>
+          <input type="text" ng-model="formData.text" typeahead="product for product in products | filter:$viewValue | limitTo:6"
+            class="form-control" placeholder="What would you like to buy?">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="createShoppingItem()">
+              <i class="fa fa-plus"></i>
+            </button>
+          </span>
+        </div>
+    </div>
+  </div>
 
   <div class="row shopping-list-margin">
-		<div class="col-md-3">
+    <div class="col-md-3">
       <div class="list-group">
         <a class="list-group-item" ng-repeat="shoppinglist in shoppinglists" ng-click="switchList(shoppinglist._id)">
           <i class="fa shopping-list-icon" ng-class="currentList == shoppinglist._id ? 'fa-chevron-circle-right' : 'fa-shopping-cart'"></i>
           {{shoppinglist.name}}
           <i class="fa fa fa-pencil-square pull-right minty" data-toggle="modal" data-target="#addUserModal"></i>
         </a>
-			</div>
-      <a class="btn btn-primary add-button" data-toggle="modal" data-target="#modalAddList"><i class="fa fa-cart-plus"></i></a>
-		</div>
+      </div>
+      <a class="btn btn-primary add-button" data-toggle="modal" data-target="#modalAddList"><i class="fa fa-plus"></i></a>
+    </div>
 
     <div class="col-md-6">
-			<div class="list-group list-group-sm">
-				<a href="" class="list-group-item" ng-repeat="item in shoppinglistItems" ng-if="!item.checked" ng-click="checkShoppingItem(item._id)">
+      <div class="list-group list-group-sm">
+        <a href="" class="list-group-item" ng-repeat="item in shoppinglistItems" ng-if="!item.checked" ng-click="checkShoppingItem(item._id)">
           <span class="fa fa-circle-o shopping-list-icon"></span>
           <span>{{item.name}}</span>
         </a>
-			</div>
-		</div>
+      </div>
+    </div>
     <div class="col-md-3">
       <div ng-repeat="member in shoppinglistMembers">
         <img class="img-circle profile-picture" ng-src="{{member.profileImage}}">
         {{member.givenName}}
       </div>
     </div>
-	</div>
+  </div>
 
   <!-- Add List -->
-  <div class="modal fade" id="modalAddList" tabindex="-1" role="dialog" aria-labelledby="modalAddListLabel" aria-hidden="true">
+  <div class="modal fade" data-backdrop="static" data-keyboard="false" id="modalAddList" tabindex="-1" role="dialog" aria-labelledby="modalAddListLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="modalAddListLabel"><i class="fa fa-cart-plus"></i> Create Shoppinglist</h4>
+          <h4 class="modal-title" id="modalAddListLabel"><i class="fa fa-plus"></i> Create Shoppinglist</h4>
         </div>
         <div class="modal-body">
           <div class="input-group input-group-lg">
@@ -103,19 +104,17 @@
           <p class="minty"><small><i class="fa fa-pencil-square"></i> You will be able to share the Shoppinglist after it has been created.</small></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="createShoppingList()">Create</button>
+          <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-ban"></i> Abort</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="createShoppingList()"><i class="fa fa-plus"></i> Create</button>
         </div>
       </div>
     </div>
   </div>
   <!-- Add User -->
-  <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+  <div class="modal fade" data-keyboard="false" data-backdrop="static" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="addUserModalLabel"><i class="fa fa-cogs"></i> Settings</h4>
         </div>
         <div class="modal-body">
@@ -150,9 +149,11 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" ng-click="deleteList(currentList)">Delete Shoppinglist</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveChanges()">Save Changes</button>
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" ng-click="deleteList(currentList)">
+            <i class="fa fa-trash"></i> Delete
+          </button>
+          <button type="button" class="btn btn-info" data-dismiss="modal" ng-click="loadData()"><i class="fa fa-ban"></i> Abort</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveChanges()"><i class="fa fa-check"></i> Save Changes</button>
         </div>
       </div>
     </div>

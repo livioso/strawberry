@@ -22,6 +22,8 @@ angular.module('strawberry')
     $scope.deleteList = function(listid) {
       ShoppingList.delete(listid).then(function () {
         $scope.loadShoppinglists();
+        $scope.currentList = $scope.shoppinglists[0]._id;
+        $scope.loadData();
       });
     };
 
@@ -89,17 +91,13 @@ angular.module('strawberry')
       if ($scope.formDataAddMember !== null &&
           $scope.formDataAddMember !== {}) {
         $scope.shoppinglistMembers.push($scope.formDataAddMember);
-        $scope.formDataMember = {};
+        $scope.formDataAddMember = null;
       }
     };
 
     // setup the data :)
-    $scope.formData = {};
-    $scope.formDataMember = {};
-    $scope.loading = true;
     $scope.loadShoppinglists();
     $scope.loadData();
-    $scope.newListModel = {};
 
     // set the type ahead data -> Move me to service!
     $http.get('/category').success(function (data) {
