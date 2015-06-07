@@ -84,6 +84,20 @@ module.exports = function (app, passport) {
       }
     });
   })
+  .put(function (req, res) {
+    Shoppinglist.findOneAndUpdate({_id: req.params.idlist}, {
+      $set: {
+        name: req.body.name,
+        members: req.body.members,
+      }
+    }, {upsert: true}, function (err) {
+      if (err) {
+        return res.sendStatus(500, {error: err});
+      } else {
+        return res.send('succesfully saved');
+      }
+    });
+  })
   .post(function (req, res) {
     Shoppinglist.findOneAndUpdate({_id: req.params.idlist}, {
       $addToSet: {items: req.body.items}

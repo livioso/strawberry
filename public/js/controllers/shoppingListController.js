@@ -62,6 +62,16 @@ angular.module('strawberry')
       }
     };
 
+    $scope.saveChanges = function () {
+      var updates = {
+        'name' : $scope.shoppinglistName,
+        'members' : $scope.shoppinglistMembers
+      };
+      ShoppingList.updateLists($scope.currentList, updates).then(function () {
+        $scope.loadShoppinglists();
+      });
+    };
+
     $scope.checkShoppingItem = function (itemId) {
       ShoppingList.update($scope.currentList, itemId, true).then(function () {
         $scope.loadData();
