@@ -81,10 +81,13 @@ angular.module('strawberry')
     };
 
     $scope.createShoppingList = function () {
-      var list = $scope.newListModel.text;
-      ShoppingList.createLists(list).then(function () {
-        $scope.loadShoppinglists();
-      });
+      if ($scope.newListModel.text !== '') {
+        var list = $scope.newListModel.text;
+        ShoppingList.createLists(list).then(function () {
+          $scope.loadShoppinglists();
+        });
+        $scope.newListModel.text = '';
+      }
     };
 
     $scope.addMember = function () {

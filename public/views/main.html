@@ -130,9 +130,10 @@
             <div class="input-group-addon">
               <i class="fa fa-user-plus"></i>
             </div>
-            <input type="text" class="form-control" typeahead-editable="false"
+            <input type="text" class="form-control"
               placeholder="Who do you want to share with?" ng-model="formDataAddMember"
-              typeahead="user as user.fullName for user in users | filter:$viewValue | limitTo:3">
+              typeahead="user as user.fullName for user in users | filter:$viewValue | limitTo:3"
+              typeahead-editable="false">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button" ng-click="addMember()">
                 <i class="fa fa-plus"></i>
