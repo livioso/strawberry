@@ -145,7 +145,7 @@
             <div ng-repeat="member in shoppinglistMembers">
               <img class="img-circle profile-picture" ng-src="{{member.profileImage}}">
               {{member.fullName}}
-              <i class="fa fa-minus-square minty"></i>
+              <i class="fa fa-minus-square minty" ng-click="removeMember(member.profileId)"></i>
             </div>
           </div>
         </div>

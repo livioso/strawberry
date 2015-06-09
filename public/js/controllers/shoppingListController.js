@@ -98,6 +98,10 @@ angular.module('strawberry')
       }
     };
 
+    $scope.removeMember = function (profileId) {
+      console.log(profileId);
+    };
+
     // setup the data :)
     $scope.loadShoppinglists();
     $scope.loadData();
