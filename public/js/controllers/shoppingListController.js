@@ -99,7 +99,11 @@ angular.module('strawberry')
     };
 
     $scope.removeMember = function (profileId) {
-      console.log(profileId);
+      // filter out the one that should be removed
+      var filterOut = $scope.shoppinglistMembers.filter(function (member) {
+        return member.profileId !== profileId;
+      });
+      $scope.shoppinglistMembers = filterOut;
     };
 
     // setup the data :)
