@@ -20,9 +20,11 @@ module.exports = function (passport) {
         if (err) {
           return done(err);
         } else {
-          done(null, user);
+          return done(null, user);
         }
       });
+    } else {
+      return done(null, false, {message: 'Incorrect username.'});
     }
   }));
 

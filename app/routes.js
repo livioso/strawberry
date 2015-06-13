@@ -56,7 +56,6 @@ module.exports = function (app, passport) {
       var members = [];
       members.push(creator);
       list.members = members;
-      console.log(list);
       new Shoppinglist(list).save(function () {
         return res.send('succesfully saved');
       });
