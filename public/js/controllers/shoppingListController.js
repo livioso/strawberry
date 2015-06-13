@@ -61,6 +61,12 @@ angular.module('strawberry')
         $scope.shoppinglistMembers = members;
         $scope.shoppinglistItems = response.data[0].items;
         $scope.shoppinglistName = response.data[0].name;
+
+        // the open items are the uncheck ones
+        $scope.shoppinglistOpenItems = $scope.shoppinglistItems.filter(
+          function (item) {
+            return item.checked === false;
+          }).length;
       });
     };
 
