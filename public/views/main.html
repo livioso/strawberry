@@ -34,7 +34,9 @@
       <div class="text-center">
         <span><img src="img/todolist.svg" alt="Strawberry"/></span>
         <h4> Hello, {{user.givenName}}.</h4>
-        <h6 class="minty">Our list is empty. </h6>
+        <h6 class="minty" ng-show="shoppinglistOpenItems === 0">Amazing. We have an empty list.</h6>
+        <h6 class="minty" ng-show="shoppinglistOpenItems === 1">Wow! We only have <strong>one</strong> item in our list.</h6>
+        <h6 class="minty" ng-show="shoppinglistOpenItems > 1">We have <strong>{{shoppinglistOpenItems}}</strong> items in our list.</h6>
       </div>
     </div>
   </div>
