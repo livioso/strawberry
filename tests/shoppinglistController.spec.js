@@ -5,8 +5,9 @@ describe('Shoppinglist Controller', function() {
 
   beforeEach(module('strawberry'));
 
-  beforeEach(inject(function(_$controller_, ShoppingList, $q) {
-    this.scope = {};
+  beforeEach(inject(function($rootScope, _$controller_, ShoppingList, $q) {
+    this.scope = $rootScope.$new();
+
     $controller = _$controller_;
     ShoppingListSpy = ShoppingList;
 
