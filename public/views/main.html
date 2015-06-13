@@ -126,20 +126,22 @@
             <input type="text" class="form-control" placeholder="What should be the title of this Shoppinglist?" ng-model="shoppinglistName">
           </div>
           <h5>Sharing</h5>
-          <div class="input-group input-group-lg">
-            <div class="input-group-addon">
-              <i class="fa fa-user-plus"></i>
+          <form ng-submit="addMember()">
+            <div class="input-group input-group-lg">
+              <div class="input-group-addon">
+                <i class="fa fa-user-plus"></i>
+              </div>
+              <input type="text" class="form-control"
+                placeholder="Who do you want to share with?" ng-model="formDataAddMember"
+                typeahead="user as user.fullName for user in users | filter:$viewValue | limitTo:3"
+                typeahead-editable="false">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="addMember()">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </span>
             </div>
-            <input type="text" class="form-control"
-              placeholder="Who do you want to share with?" ng-model="formDataAddMember"
-              typeahead="user as user.fullName for user in users | filter:$viewValue | limitTo:3"
-              typeahead-editable="false">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button" ng-click="addMember()">
-                <i class="fa fa-plus"></i>
-              </button>
-            </span>
-          </div>
+          </form>
           <div>
             <p class="minty"><small>This list is accessible by:</small></p>
             <div ng-repeat="member in shoppinglistMembers">
