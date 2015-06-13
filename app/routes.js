@@ -62,7 +62,9 @@ module.exports = function (app, passport) {
       });
     })
     .get(function (req, res) {
-      Shoppinglist.find(function (err, lists) {
+      var requestBy = req.user.profileId;
+      Shoppinglist.find({'members': {$elemMatch: {'profileId': requestBy}}},
+          function (err, lists) {
         if (err) {
           return res.sendStatus(500, {error: err});
         } else {
