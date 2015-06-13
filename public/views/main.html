@@ -40,22 +40,22 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3">
-    </div>
-
-      <div class="col-md-6">
-        <div class="input-group input-group-lg">
-          <div class="input-group-addon">
-            <i class="fa fa-cart-plus"></i>
-          </div>
-          <input type="text" ng-model="formData.text" typeahead="product for product in products | filter:$viewValue | limitTo:6"
-            class="form-control" placeholder="What would you like to buy?">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="createShoppingItem()">
-              <i class="fa fa-plus"></i>
-            </button>
-          </span>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form ng-submit="createShoppingItem()">
+      <div class="input-group input-group-lg">
+        <div class="input-group-addon">
+          <i class="fa fa-cart-plus"></i>
         </div>
+        <input type="text" ng-model="formData.text" typeahead="product for product in products | filter:$viewValue | limitTo:6"
+          class="form-control" placeholder="What would you like to buy?">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="createShoppingItem()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </span>
+      </div>
+      </form>
     </div>
   </div>
 
