@@ -40,8 +40,8 @@ module.exports = function (passport) {
       clientID: process.env.FBAppID,
       clientSecret: process.env.FBAppSecret,
       callbackURL:
-        //'https://strawberry-livioso.herokuapp.com/' +
-        'http://localhost:8080/' +
+        //'http://localhost:8080/' +
+        'https://strawberry-livioso.herokuapp.com/' +
         'auth/facebook/callback'
     },
 
