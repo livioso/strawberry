@@ -8,6 +8,18 @@ angular.module('strawberry')
 
     $scope.currentList = '';
 
+    $scope.$watch('shoppinglists', function() {
+      if ($scope.currentList === '' &&
+          $scope.shoppinglists !== '' &&
+          $scope.shoppinglists !== undefined &&
+          $scope.shoppinglists.length >= 0) {
+        // set the currentList to
+        // something meaningful if we can
+        $scope.currentList = $scope.shoppinglists[0]._id;
+        $scope.loadData();
+      }
+    });
+
     $scope.loadShoppinglists = function() {
       ShoppingList.getLists().then(function (response) {
         $scope.shoppinglists = response.data;
@@ -22,7 +34,7 @@ angular.module('strawberry')
     $scope.deleteList = function(listid) {
       ShoppingList.delete(listid).then(function () {
         $scope.loadShoppinglists();
-        $scope.currentList = $scope.shoppinglists[0]._id;
+        $scope.currentList = '';
         $scope.loadData();
       });
     };
@@ -54,8 +66,7 @@ angular.module('strawberry')
 
     $scope.createShoppingItem = function () {
       var item = $scope.formData.text;
-      if (item !== '' && item !== undefined &&
-          $scope.currentList !== undefined && $scope.currentList !== '') {
+      if (item !== '' && item !== undefined) {
         ShoppingList.create($scope.currentList, item).then(function () {
           $scope.loadData();
         });
