@@ -40,7 +40,7 @@ pdf: prepare
 		--variable classoption=openright \
 		--variable papersize=a4paper,oneside,headsepline \
 		--variable bibliography=totocnumbered \
-		--variable custom-title-image=figures/StrawberryBanner \
+		--variable custom-title-image=figures/StrawberryBannerTitle \
 		--highlight-style=tango \
 		--table-of-contents \
 		--toc-depth=4 \
