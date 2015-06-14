@@ -1,28 +1,13 @@
 
 # Mockups
 
-## Landing page
+## Landing Page / Sign In Page / Main Page
 
-![Landingpage](figures/mockups/1_Landingpage.png)
+![MockupI](figures/mockups/Mockup-I.png)
 
-## Signin page
+## Settings Page / Sign In Page Error / Main Page Typeahead
 
-![Signinpage](figures/mockups/2_Signinpage.png)
+![MockupII](figures/mockups/Mockup-II.png)
 
-## Signin page (failure)
-
-![SigninpageFailure](figures/mockups/3_Signinpagefailure.png)
-
-## Overview page
-
-![Overview](figures/mockups/4_Overview.png)
-
-## Overview page (typeahead)
-
-![Typeahead](figures/mockups/5_Typeahead.png)
-
-## Settings page
-
-![Settings](figures/mockups/6_Settings.png)
 
 

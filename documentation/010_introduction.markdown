@@ -3,7 +3,7 @@
 
 ## What's the point?
 
-**Strawberry** is a collaborative shopping list. Strawberry aims to simplify doing groceries in households with more than one person. No more problems because you forgot that piece of paper called grocery list at home or you did not see the message from your girlfriend telling you to bring that one important item.
+**Strawberry** is a collaborative shopping list. Strawberry aims to simplify doing groceries in households with more than one person by offering simple shared shopping lists.
 
 ## What are the features?
 
@@ -14,6 +14,8 @@
 + **Simple item-based lists** simply add items and remove them by checking them off the list. You can add a short note to each item seperately. For example if you want to have a certain brand of chocolate.
 
 + **[Twitter Style Typeahead](https://twitter.github.io/typeahead.js/)** with common shopping items. Such as "Apples", "Bananas" or "Strawberries" in item input field. 
+
++ **Sign in via Facebook.**
 
 # Requirements
 
@@ -86,13 +88,4 @@ Use Case				| Create new shopping lists
 **Basic Flow**		| User enters the name of the new list and clicks add.
 **Alt. Flow**			| None.
 **Postconditions**	| A new empty shopping list has been created.
-**Notes**				| -
-
-
-
-
-
- 
-
-
-
+**Notes**				| -  

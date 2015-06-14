@@ -1,7 +1,109 @@
 
 # Implementation
 
-## Used Technologies and Frameworks
+## Final vs Mockup
+
+- Login and Landing Page are very similar to original Mockups.
+- Settings is now separate per list (the green edit button).
+- Instead of just names we have profile pictures.
+
+### Main Page
+
+![main](figures/final/Overview.png)
+
+### Main Page - Typeahead
+
+![main](figures/final/Typeahead.png)
+
+### Settings
+
+![main](figures/final/Settings.png)
+
+### Create
+
+![main](figures/final/Create.png)
+
+
+## API
+
+- **Incomplete list of possible API calls.**
+- **For more information please check out [routes.js](https://github.com/livioso/strawberry/blob/master/app/routes.js).**
+
+### PUT `/api/list`
+
+- Can be executed by authenticated user.
+- Parameter with MIME-Type `application/json`.
+
+Example Parameter:
+
+```json 
+{
+	"name": "My new cool list"
+}
+```
+
+### GET `/api/list`
+
+- Can be executed by authenticated user.
+- Returns all the users lists.
+
+
+### POST `/api/list/:idlist`
+
+- Can be executed by authenticated user.
+- Update name of existing list.
+- and/or members of existing list.
+- and/or items of existing list (with `:listid`).
+- Parameter with MIME-Type `application/json`.
+
+Example Parameter:
+
+```json 
+{
+	"name": "My new cool list name";
+	"members": ["0193472304", "0564667234"];
+	"items": [{"_id": "09293932", "checked": true}]
+}
+```
+
+### GET `/api/list/:idlist`
+
+- Can be executed by authenticated user.
+- Returns all items of given list.
+
+### DELETE `/api/list/:idlist`
+
+- Can be executed by authenticated user.
+- Deletes the list permanently.
+
+### GET `/api/user`
+
+- Can be executed by authenticated user.
+- Gets information about the logged in user.
+
+### POST `/login`
+
+- Simple login with username + password.
+- Or Facebook (see `/auth/facebook`).
+
+### POST `/logout`
+
+- Can be executed by authenticated user.
+- Logs the currently signed in user out.
+
+### GET `/auth/facebook`
+
+- Sign in via Facebook.
+- Redirects to Facebook and tries to authenticate user.
+- Facebook redirects back to `/auth/facebook/callback` with success / failure message.
+
+### GET `api/category`
+
+- Can be executed by authenticated user.
+- Returns an array of products that are used for autocompletion / typeahead.
+
+
+## Technologies
 
 ### Server Side
 
@@ -55,6 +157,8 @@ Strawberry only uses the most basic information provided by Facebook:
 
 ### Important Files & Folders
 
+In order the understand the project it is highly advisable to browse [its source code on Github](https://github.com/livioso/strawberry). The following incomplete list of files is a good starting point though:
+
 - **[server.js:](https://github.com/livioso/strawberry/blob/master/server.js)** General server setup and configuration.
 - **[app/routes.js:](https://github.com/livioso/strawberry/blob/master/app/routes.js)** Handles API requests / routes.
 - **[app/models/:](https://github.com/livioso/strawberry/tree/master/app/models)** Contains the Models.
@@ -63,3 +167,15 @@ Strawberry only uses the most basic information provided by Facebook:
 - **[public/js/services/](https://github.com/livioso/strawberry/tree/master/public/js/services)** Contains Services used by Controllers.
 - **[tests/:](https://github.com/livioso/strawberry/tree/master/tests)** Contains the Unit Tests.
 - **[config/:](https://github.com/livioso/strawberry/tree/master/config)** Contains database and authentication configuration.
+
+### Installation
+
+- **Please see the project [Readme on Github](https://github.com/livioso/strawberry/blob/master/README.md#initial-installation) for a detailed installation guide.**
+
+- Installation: `npm install && bower install && gulp build`
+- Start Server: `npm start`
+
+## Next Steps
+
+- Replace Flat UI with [Angular Material](https://material.angularjs.org/latest/#/) (improve responsiveness of application).
+- Refactor [shoppingListController.js](https://github.com/livioso/strawberry/blob/master/public/js/controllers/shoppingListController.js). This controller has way too many responsibilities. Violates [SRP](https://en.wikipedia.org/wiki/Single_responsibility_principle).

@@ -14,9 +14,6 @@ Set of items for one or several users. The list has **Notifications** about the 
 ### Entity: Item
 An item is defined as following: A `description` such as *Strawberry*, a `quantity` for example *some*, *one* or *many* and a `bought ✓` checkmark which indicates an item that has been ticked of the the list *(thus no longer is required to be bought).*
 
-### Entity: Notification
-*see Shoppinglist.*
-
 ## Operations
 
 Actor			| Operation			| Arguments | Result
