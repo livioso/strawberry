@@ -19,7 +19,7 @@ module.exports = function (app, passport) {
   'use strict';
 
   // -- /api/list/:idlist/:iditem --
-  app.route('/api/list/:idlist/:iditem')
+  app.route('/api/list/:idlist/:iditem', auth)
     .get(function (req, res) {
       Shoppinglist.aggregate([
         {$match: {_id: new ObjectId(req.params.idlist)}},
@@ -49,7 +49,7 @@ module.exports = function (app, passport) {
     });
 
   // -- /api/list --
-  app.route('/api/list')
+  app.route('/api/list', auth)
     .put(function (req, res) {
       var list = req.body;
       var creator = {profileId: req.user.profileId};
@@ -73,7 +73,7 @@ module.exports = function (app, passport) {
     });
 
   // -- /api/list/:idlist --
-  app.route('/api/list/:idlist')
+  app.route('/api/list/:idlist', auth)
   .get(function (req, res) {
     Shoppinglist.aggregate([
       {$match: {_id: new ObjectId(req.params.idlist)}}
@@ -121,7 +121,7 @@ module.exports = function (app, passport) {
     });
   });
 
-  app.route('/api/user')
+  app.route('/api/user', auth)
   .get(function (req, res) {
     User.find(function (err, users) {
       if (err) {
@@ -149,7 +149,7 @@ module.exports = function (app, passport) {
       failureRedirect: '/login'
     }));
 
-  app.post('/logout', function (req, res) {
+  app.post('/logout', auth, function (req, res) {
     req.logOut();
     // necessary, otherwise we still
     // look like logged in (why is that?)
