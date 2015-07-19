@@ -60,8 +60,8 @@ Example Parameter:
 
 ```json 
 {
-	"name": "My new cool list name";
-	"members": ["0193472304", "0564667234"];
+	"name": "My new cool list name",
+	"members": ["0193472304", "0564667234"],
 	"items": [{"_id": "09293932", "checked": true}]
 }
 ```
@@ -171,7 +171,6 @@ In order the understand the project it is highly advisable to browse [its source
 ### Installation
 
 - **Please see the project [Readme on Github](https://github.com/livioso/strawberry/blob/master/README.md#initial-installation) for a detailed installation guide.**
-
 - Installation: `npm install && bower install && gulp build`
 - Start Server: `npm start`
 

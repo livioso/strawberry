@@ -3,11 +3,11 @@
 
 ## What's the point?
 
-**Strawberry** is a collaborative shopping list. Strawberry aims to simplify doing groceries in households with more than one person by offering simple shared shopping lists.
+**Strawberry** is a collaborative shopping list. Strawberry aims to simplify doing groceries in households with more than one person by offering a simple shared shopping lists.
 
 ## What are the features?
 
-**Strawberry** in this early version will support the following features:
+**Strawberry** has the following features:
 
 + **Shared lists** with as many users as you wish. You can simply invite everyone with a Strawberry account to take part in your list. Each user can many have as many seperate lists with different people as he wants. For example: *"me and girlfriend", "me and family" or "me and my flatmates".* Of course it is also possible to have a private list just for yourself.
 
