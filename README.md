@@ -1,6 +1,6 @@
 ![Screenshot](/documentation/figures/StrawberryBanner.png?raw=true "Banner")
 
-[![Build Status](https://travis-ci.org/livioso/strawberry.svg)](https://travis-ci.org/livioso/strawberry) [![Code Climate](https://codeclimate.com/github/livioso/strawberry/badges/gpa.svg)](https://codeclimate.com/github/livioso/strawberry) [![Heroku](https://heroku-badge.herokuapp.com/?app=strawberry-livioso&style=flat)](https://strawberry-livioso.herokuapp.com/) [![Packages](https://david-dm.org/livioso/strawberry.svg)](https://github.com/livioso/strawberry/blob/master/package.json) [![Coverage Status](https://coveralls.io/repos/livioso/strawberry/badge.svg?branch=master)](https://coveralls.io/r/livioso/strawberry?branch=master)
+[![Code Climate](https://codeclimate.com/github/livioso/strawberry/badges/gpa.svg)](https://codeclimate.com/github/livioso/strawberry) [![Heroku](https://heroku-badge.herokuapp.com/?app=strawberry-livioso&style=flat)](https://strawberry-livioso.herokuapp.com/) [![Packages](https://david-dm.org/livioso/strawberry.svg)](https://github.com/livioso/strawberry/blob/master/package.json) [![Coverage Status](https://coveralls.io/repos/livioso/strawberry/badge.svg?branch=master)](https://coveralls.io/r/livioso/strawberry?branch=master)
 
 **Strawberry** is a simple collaborative shopping list developed using the MEAN stack (MongoDB, ExpressJS, AngularJS and Node.js) and serves as a personal learning playground for those technologies. :-)
 
